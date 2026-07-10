@@ -1,0 +1,7 @@
+tools/
+*.pyc
+__pycache__/
+.env
+.env.*
+.git/
+node_modules/

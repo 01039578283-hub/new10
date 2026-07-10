@@ -1219,3 +1219,74 @@ h3 {
     gap: 8px;
   }
 }
+
+
+/* ---------- SEO / AEO / GEO enhancement cards ---------- */
+.geo-enhance {
+  position: relative;
+}
+
+.geo-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.geo-card,
+.geo-panel {
+  background: var(--card, #fff);
+  border: 1px solid var(--line, rgba(15,23,42,.1));
+  border-radius: var(--radius-md, 22px);
+  padding: 22px;
+  box-shadow: var(--shadow-sm, 0 12px 30px rgba(15,23,42,.06));
+}
+
+.geo-card h3,
+.geo-panel h3 {
+  margin: 10px 0 8px;
+}
+
+.geo-card p,
+.geo-panel p,
+.geo-panel blockquote {
+  color: var(--ink-soft, #475569);
+  line-height: 1.75;
+}
+
+.geo-faq-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.geo-panel details {
+  padding: 14px 0;
+  border-top: 1px solid var(--line, rgba(15,23,42,.1));
+}
+
+.geo-panel details:first-of-type {
+  border-top: 0;
+}
+
+.geo-panel summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--ink, #111827);
+}
+
+.geo-panel blockquote {
+  margin: 12px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid currentColor;
+  background: color-mix(in srgb, var(--paper-deep, #f8fafc) 78%, transparent);
+  border-radius: 14px;
+}
+
+@media (max-width: 900px) {
+  .geo-card-grid,
+  .geo-faq-review {
+    grid-template-columns: 1fr;
+  }
+}
