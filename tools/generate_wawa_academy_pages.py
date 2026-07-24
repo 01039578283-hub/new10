@@ -556,7 +556,7 @@ def local_page(row: dict[str, str], idx: int, rep_image: str, all_rows: list[dic
                     {"@type": "ListItem", "position": 1, "name": "홈", "item": "/"},
                     {"@type": "ListItem", "position": 2, "name": "전국학원", "item": "/전국학원/"},
                     {"@type": "ListItem", "position": 3, "name": CATEGORY, "item": f"/전국학원/{CATEGORY}/"},
-                    {"@type": "ListItem", "position": 4, "name": local, "item": canonical},
+                    {"@type": "ListItem", "position": 4, "name": title, "item": canonical},
                 ],
             },
             {
@@ -849,7 +849,7 @@ def local_page(row: dict[str, str], idx: int, rep_image: str, all_rows: list[dic
 
   <main>
     <section class="page-hero">
-      <p class="breadcrumb"><a href="../../../index.html">홈</a><span>/</span><a href="../../index.html">전국학원</a><span>/</span><a href="../index.html">{esc(CATEGORY)}</a><span>/</span><span>{esc(local)}</span></p>
+      <p class="breadcrumb"><a href="../../../index.html">홈</a><span>/</span><a href="../../index.html">전국학원</a><span>/</span><a href="../index.html">{esc(CATEGORY)}</a><span>/</span><span>{esc(title)}</span></p>
       <p class="eyebrow">ALL-SUBJECT LEARNING COACHING</p>
       <h1>{esc(title)}</h1>
       <p class="lead">{esc(description)}</p>
