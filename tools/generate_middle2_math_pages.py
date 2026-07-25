@@ -72,6 +72,18 @@ FAQ_RE = re.compile(
 )
 
 
+DEDUPE_WORD_RE = re.compile(r"(?<!\S)(\S{2,})([ \t]+)\1(?!\S)")
+
+
+def dedupe_adjacent_words(value: str) -> str:
+    """원고 생성 과정에서 섞여 들어간 '직접 직접'류 단순 중복 오타만 교정한다 (사실·문장 내용은 변경하지 않음)."""
+    previous = None
+    while previous != value:
+        previous = value
+        value = DEDUPE_WORD_RE.sub(r"\1", value)
+    return value
+
+
 def parse_manuscript(text: str) -> dict[str, str]:
     matches = list(SECTION_RE.finditer(text))
     parsed: dict[str, str] = {}
@@ -82,6 +94,9 @@ def parse_manuscript(text: str) -> dict[str, str]:
     missing = required - parsed.keys()
     if missing:
         raise ValueError(f"원고 구역 누락: {sorted(missing)}")
+    for key, value in parsed.items():
+        if key != "페이지타이틀":
+            parsed[key] = dedupe_adjacent_words(value)
     return parsed
 
 
