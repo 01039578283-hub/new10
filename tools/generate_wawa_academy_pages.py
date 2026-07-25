@@ -117,6 +117,7 @@ def nav_html(depth: int, active: str = "전국학원") -> str:
         ("학습가이드", f"{p}학습가이드/index.html"),
         ("상담문의", f"{p}상담문의/index.html"),
         ("전국학원", f"{p}전국학원/index.html"),
+        ("과목별학원", f"{p}과목별학원/index.html"),
     ]
     items = "\n".join(
         f'        <a{" class=\"active\"" if name == active else ""} href="{href}">{name}</a>'

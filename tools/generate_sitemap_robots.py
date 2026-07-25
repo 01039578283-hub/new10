@@ -7,7 +7,7 @@ from xml.sax.saxutils import escape
 
 SITE = Path(__file__).resolve().parents[1]
 DOMAIN = "https://xn--9p4bn5e1r987b.com"
-TODAY = "2026-07-03"
+TODAY = "2026-07-25"
 
 
 def page_url(index_file: Path) -> str:
@@ -25,19 +25,19 @@ def priority_for(path: str) -> str:
     if path in ("/학습가이드/", "/상담문의/"):
         return "0.9"
     depth = path.strip("/").count("/") + 1
-    if path == "/전국학원/":
+    if path in ("/전국학원/", "/과목별학원/"):
         return "0.9"
-    if path.startswith("/전국학원/") and depth == 2:
+    if (path.startswith("/전국학원/") or path.startswith("/과목별학원/")) and depth == 2:
         return "0.85"
-    if path.startswith("/전국학원/") and depth >= 3:
+    if (path.startswith("/전국학원/") or path.startswith("/과목별학원/")) and depth >= 3:
         return "0.75"
     return "0.8"
 
 
 def changefreq_for(path: str) -> str:
-    if path == "/" or path == "/전국학원/":
+    if path in ("/", "/전국학원/", "/과목별학원/"):
         return "weekly"
-    if path.startswith("/전국학원/"):
+    if path.startswith("/전국학원/") or path.startswith("/과목별학원/"):
         return "monthly"
     return "weekly"
 
