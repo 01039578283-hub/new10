@@ -7,7 +7,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
 PARENT = "과목별학원"
-CATEGORIES = ["중2수학학원", "중2영어학원"]
+CATEGORIES = ["중2수학학원", "중2영어학원", "중3수학학원", "중3영어학원"]
 DOMAIN = "https://xn--9p4bn5e1r987b.com"
 
 report_lines: list[str] = []
