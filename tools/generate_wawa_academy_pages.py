@@ -199,6 +199,28 @@ def find_map(row: dict[str, str]) -> str:
     return "assets/centers/common/local6839.jpg"
 
 
+def choose_random_rep_image(local: str, slug: str, tag: str) -> str:
+    """참고자료 대표이미지 폴더에서 페이지(동네)마다 독립적으로 1장을 무작위 선택한다.
+
+    choose_rep_images()의 371장 셔플-무반복 방식과 달리, 각 페이지가 서로 다른
+    카테고리와도 겹치지 않는 자기만의 무작위 선택을 갖도록 tag로 시드를 분리한다.
+    동일 local+tag에는 항상 같은 이미지가 재현되도록 결정적 시드를 사용한다.
+    """
+    src_dir = COMMON / "대표이미지"
+    candidates = sorted(
+        p for p in src_dir.iterdir()
+        if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+    )
+    rng = random.Random(seed_for(local, f"{tag}-random-rep"))
+    chosen = rng.choice(candidates)
+    dst_dir = SITE / "assets" / "representative"
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    dst = dst_dir / f"{tag}-{slug}{chosen.suffix.lower()}"
+    if not dst.exists() or dst.stat().st_size != chosen.stat().st_size:
+        shutil.copy2(chosen, dst)
+    return f"assets/representative/{dst.name}"
+
+
 def choose_rep_images(rows: list[dict[str, str]]) -> list[str]:
     src_dir = COMMON / "대표이미지"
     dst_dir = SITE / "assets" / "representative"

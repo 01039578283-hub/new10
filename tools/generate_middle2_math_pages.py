@@ -19,6 +19,14 @@ PHONE_LINK = shared.PHONE_LINK
 PUBLISH_DATE = "2026-07-25"
 DOMAIN = "https://xn--9p4bn5e1r987b.com"
 
+
+def korean_date(iso_value: str) -> str:
+    year, month, day = iso_value.split("-")
+    return f"{int(year)}년 {int(month)}월 {int(day)}일"
+
+
+PUBLISH_DATE_KO = korean_date(PUBLISH_DATE)
+
 PARENT = "과목별학원"
 CATEGORY = "중2수학학원"
 TITLE_SUFFIX = " 중2 수학학원"
@@ -291,8 +299,6 @@ COMPARE_ROWS: list[dict[str, str]] = [
 ]
 
 
-def representative_asset(rep_paths: list[str], index: int) -> str:
-    return rep_paths[index]
 
 
 # ---------------------------------------------------------------------------
@@ -426,6 +432,12 @@ def page_ld(
                 "audience": {"@type": "EducationalAudience", "educationalRole": f"{GRADE_TEXT} 학생"},
                 "about": about,
                 "mentions": mentions,
+                "offers": {
+                    "@type": "Offer",
+                    "url": canonical,
+                    "availability": "https://schema.org/InStock",
+                    "itemOffered": {"@id": service_id},
+                },
             },
             {
                 "@type": "FAQPage",
@@ -464,7 +476,6 @@ def detail_page(
     index: int,
     manuscript: dict[str, str],
     rows: list[dict[str, str]],
-    rep_paths: list[str],
     repeated_signatures: set[str],
 ) -> str:
     local = row["근처 수업가능 동네"].strip()
@@ -487,7 +498,7 @@ def detail_page(
 
     canonical_path = f"/{PARENT}/{CATEGORY}/{slug}/"
     canonical = DOMAIN + canonical_path
-    rep_path = representative_asset(rep_paths, index)
+    rep_path = shared.choose_random_rep_image(local, slug, "me2math")
     rep_image_abs = DOMAIN + "/" + rep_path
     center_img = "assets/centers/common/seoul6839.jpg" if region == "서울" else "assets/centers/common/local6839.jpg"
     map_img = find_map(row)
@@ -719,6 +730,7 @@ def detail_page(
       <h1>{esc(title)}</h1>
       <p class="lead">{esc(description)}</p>
       {badge_row}
+      <p class="update-date">최종 업데이트: <time datetime="{PUBLISH_DATE}">{PUBLISH_DATE_KO}</time></p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="tel:{PHONE_DISPLAY}">전화 상담하기</a>
         <a class="btn btn-ghost" href="../../../상담문의/index.html">상담문의</a>
@@ -868,7 +880,6 @@ def main() -> None:
         raise ValueError(f"지역 대응 불일치: missing={missing}, extra={extra}")
 
     repeated_signatures = repeated_body_signatures(manuscripts)
-    rep_paths = shared.choose_rep_images(rows)
 
     category_hub(rows)
     parent_hub()
@@ -877,7 +888,7 @@ def main() -> None:
         out = SITE / PARENT / CATEGORY / slug_ko(local) / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
-            detail_page(row, index, manuscripts[local], rows, rep_paths, repeated_signatures),
+            detail_page(row, index, manuscripts[local], rows, repeated_signatures),
             encoding="utf-8",
         )
     print(
