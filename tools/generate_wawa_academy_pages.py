@@ -8,6 +8,8 @@ import re
 import shutil
 from pathlib import Path
 
+from PIL import Image
+
 
 SITE = Path(__file__).resolve().parents[1]
 BASE = SITE.parent
@@ -54,6 +56,187 @@ def split_items(value: str) -> list[str]:
 def seed_for(*parts: str) -> int:
     import zlib
     return zlib.crc32("::".join(parts).encode("utf-8"))
+
+
+def stable_choice(items: list[str], *parts: str) -> str:
+    return items[seed_for(*parts) % len(items)]
+
+
+def image_dimensions(relative_path: str) -> tuple[int, int]:
+    with Image.open(SITE / relative_path) as image:
+        return image.size
+
+
+def compact_local_meta(value: str, title: str, focus: str, index: int) -> str:
+    """Preserve each manuscript's wording while keeping snippets concise."""
+    description = re.sub(r"\s+", " ", value).strip()
+    if 80 <= len(description) <= 110:
+        return description
+
+    if len(description) > 110:
+        sentences = re.split(r"(?<=[.!?])\s+", description)
+        chosen: list[str] = []
+        for sentence in sentences:
+            candidate = " ".join(chosen + [sentence]).strip()
+            if len(candidate) > 110:
+                break
+            chosen.append(sentence)
+        if chosen and len(" ".join(chosen)) >= 80:
+            return " ".join(chosen)
+        clipped = description[:104].rstrip(" ,·")
+        if " " in clipped:
+            clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,·")
+        return f"{clipped} 안내입니다."
+
+    suffixes = [
+        f"{focus} 진단 자료와 상담 전 확인 항목을 함께 안내합니다.",
+        f"최근 오답, 학교 범위와 주간 학습계획을 함께 확인합니다.",
+        f"학생별 우선순위와 수업 전 상담 질문을 구체적으로 정리했습니다.",
+        f"학교 자료, 반복 오류와 복습 계획을 확인하는 기준을 담았습니다.",
+    ]
+    suffix = suffixes[index % len(suffixes)]
+    candidate = f"{description} {suffix}".strip()
+    if len(candidate) <= 110:
+        return candidate
+    clipped = candidate[:106].rstrip(" ,·")
+    if " " in clipped:
+        clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,·")
+    return f"{clipped}입니다."
+
+
+def clean_json_summary(value: str, title: str) -> str:
+    """Turn repeated defensive boilerplate into a useful, positive summary."""
+    summary = re.sub(r"\s+", " ", value).strip()
+    patterns = [
+        rf"{re.escape(title)}은 성적이나 입시 결과를 보장하지 않고 학생 상태에 맞춘 상담 질문과 선택 기준을 제공합니다\.?",
+        rf"{re.escape(title)}은 성적·입시 결과를 보장하지 않고 학생 상태에 맞춘 상담 질문과 선택 기준을 제공합니다\.?",
+    ]
+    replacement = (
+        f"{title}에서는 학생의 최근 학습 기록을 바탕으로 "
+        "상담 질문과 선택 기준을 구체적으로 제시합니다."
+    )
+    for pattern in patterns:
+        summary = re.sub(pattern, replacement, summary)
+    return summary
+
+
+def normalize_editorial_copy(value: str) -> str:
+    """Replace search-query-like compounds with natural reader-facing wording."""
+    replacements = {
+        "학원재등록": "재등록 조건",
+        "학원 휴원": "휴원·보강",
+        "학원환불": "환불 기준",
+    }
+    result = value
+    for source, target in replacements.items():
+        result = result.replace(source, target)
+    return result
+
+
+def local_copy_variant(kind: str, *, category: str, local: str, subject_label: str, site_name: str) -> str:
+    banks = {
+        "summary_heading": [
+            f"{local} 상담 전 핵심 기준",
+            f"{local} {subject_label} 먼저 보기",
+            f"{local} 학습상담 핵심 요약",
+            f"{local}에서 확인할 학습 기준",
+            f"{local} {subject_label} 한눈에 보기",
+            f"{local} 수업 선택 핵심 정리",
+        ],
+        "compare_lead": [
+            f"{local}에서 학원을 비교할 때 진도, 진단, 오답 확인과 계획 조정 방식을 같은 항목으로 살펴보세요.",
+            f"{subject_label} 수업은 교재 수보다 진단 이후 계획이 어떻게 바뀌는지를 비교하는 편이 정확합니다.",
+            f"{local} 학부모가 상담에서 바로 질문할 수 있도록 진단부터 재학습까지의 차이를 나눠 정리했습니다.",
+            f"수업 방식의 차이는 설명보다 기록에서 분명해집니다. {local} 상담에서 확인할 항목을 표로 비교했습니다.",
+            f"{local} 학생에게 맞는지 판단하려면 학교 범위 확인, 과제 조정과 오답 재확인을 함께 비교해야 합니다.",
+            f"{site_name}의 관리 기준과 일반적인 진도 중심 수업의 차이를 {local} 상담 관점에서 살펴봅니다.",
+            f"{local} {subject_label} 선택 시 놓치기 쉬운 진단 자료와 후속 점검 기준을 항목별로 비교했습니다.",
+            f"같은 수업 시간이라도 확인 방식은 다를 수 있어, {local}에서 비교할 핵심 운영 기준을 정리했습니다.",
+        ],
+        "fee_note": [
+            f"{local} 표의 금액은 참고 기준이며, 실제 학습료는 지역·과정·교육청 신고 내용에 따라 상담 시 확인합니다.",
+            f"{local}의 정확한 학습료는 학생 과정과 수업 조건을 확인한 뒤 해당 지역의 교육청 신고 기준으로 안내합니다.",
+            f"{local}에서는 지역과 선택 과정에 따라 금액이 달라질 수 있으므로 등록 전 최종 학습료를 확인해 주세요.",
+            f"{local} 학습료 표는 비교를 위한 안내이며, 실제 적용 금액은 수업 횟수와 지역 신고 기준을 따릅니다.",
+            f"{local} 학생별 과정과 지역 운영 조건이 다를 수 있어 최종 금액은 상담 단계에서 다시 확인합니다.",
+            f"{local}의 아래 금액은 기본 안내입니다. 등록 전 수업 시간·횟수와 교육청 신고 학습료를 함께 확인해 주세요.",
+            f"{local} 수업 구성에 따라 차이가 생길 수 있으므로 계약 전 적용 과정과 최종 학습료를 확인하는 것이 좋습니다.",
+            f"{local} 학습료 표는 상담 전 예산 확인용이며, 확정 금액은 지역 센터의 신고 기준과 학생 과정에 따릅니다.",
+        ],
+        "link_lead": [
+            f"{local}의 다른 학년·과목 안내와 가까운 지역 페이지를 목적별로 나누어 연결했습니다.",
+            f"{local}의 다른 수업 기준이나 인근 지역 안내가 필요할 때 아래 링크에서 비교할 수 있습니다.",
+            f"{local}에서 과목을 함께 비교하거나 가까운 지역의 상담 기준을 확인할 수 있도록 정리했습니다.",
+            f"현재 페이지와 연결되는 {local}의 다른 카테고리, 전체 허브와 인근 지역을 구분했습니다.",
+            f"{local}의 다른 과목 또는 가까운 생활권 안내가 필요하다면 아래 관련 페이지를 순서대로 확인해 보세요.",
+            f"{local} 상담 범위를 넓혀 볼 수 있도록 같은 지역 과목 안내와 인접 지역 링크를 모았습니다.",
+            f"학년·과목 조건을 바꿔 비교할 수 있는 {local} 관련 페이지와 인근 지역 안내입니다.",
+            f"다음 탐색이 쉽도록 {local}의 다른 수업 페이지와 주변 지역 안내를 한곳에 정리했습니다.",
+        ],
+    }
+    return stable_choice(banks[kind], category, local, kind)
+
+
+def faq_context_sentence(
+    *,
+    category: str,
+    local: str,
+    region: str,
+    district: str,
+    subject_label: str,
+    item_index: int,
+) -> str:
+    evidence = [
+        "최근 시험지의 오답 표시", "학교에서 받은 범위표", "일주일 과제 완료 기록",
+        "학생이 직접 설명한 풀이 과정", "교재별 완료 단원", "서술형 감점 메모",
+        "재풀이 날짜가 적힌 오답 기록", "수업 전 질문 목록", "주간 단어·개념 점검표",
+        "시험까지 남은 학습일", "혼자 다시 푼 문제의 정답률", "수행평가 준비 일정",
+        "학습 시간을 적은 플래너", "이전 단원 복습 결과", "과제 난이도별 소요 시간",
+        "학생이 막힌 지점을 적은 메모",
+    ]
+    action = [
+        "다음 주 복습 순서를 정해 보세요", "우선 보완할 단원을 한 가지로 좁혀 보세요",
+        "집에서 다시 확인할 항목을 기록해 보세요", "다음 상담 때 비교할 기준으로 남겨 두세요",
+        "수업 분량을 조정할 근거로 활용해 보세요", "재풀이 확인 날짜를 함께 정해 보세요",
+        "과제량보다 완료 기준을 먼저 합의해 보세요", "학생이 설명할 수 있는지 다시 확인해 보세요",
+        "학교 진도와 연결할 순서를 정해 보세요", "질문할 내용을 짧게 적어 두세요",
+        "혼자 실행할 최소 분량을 정해 보세요", "보충 설명이 필요한 부분을 표시해 보세요",
+        "시험 전 완료 시점을 구체적으로 잡아 보세요", "학부모 피드백에서 확인할 항목으로 삼아 보세요",
+        "난이도를 유지할지 조정할지 판단해 보세요", "일주일 뒤 같은 방식으로 다시 점검해 보세요",
+    ]
+    seed = seed_for(category, local, "faq-context", str(item_index))
+    location = " ".join(part for part in (region, district, local) if part)
+    evidence_value = evidence[seed % len(evidence)]
+    return (
+        f"{location} {subject_label} 상담에서는 "
+        f"{evidence_value}{eul_reul(evidence_value)} 근거로 확인한 뒤 "
+        f"{action[(seed // len(evidence)) % len(action)]}."
+    )
+
+
+def review_note_variant(
+    *,
+    category: str,
+    local: str,
+    subject_label: str,
+    original_note: str,
+) -> str:
+    notes = [
+        f"아래 내용은 {local} {subject_label} 상담에서 확인할 변화를 이해하기 위한 예시이며, 실제 학생의 결과를 뜻하지 않습니다.",
+        f"{local} 학생의 상담 흐름을 쉽게 이해할 수 있도록 구성한 예시 후기입니다. 학생마다 시작점과 변화 속도는 다를 수 있습니다.",
+        f"후기는 {local} {subject_label} 관리 과정을 설명하기 위한 가상 사례입니다. 실제 상담에서는 최근 학습 기록을 먼저 확인합니다.",
+        f"아래 예시는 {local}에서 학부모가 확인할 수업 후 변화를 보여 주기 위한 구성으로, 개인별 결과를 약속하지 않습니다.",
+        f"{local} {subject_label} 상담의 점검 항목을 설명하기 위해 재구성한 사례입니다. 실제 계획은 학생 자료에 따라 달라집니다.",
+        f"학생별 관리 과정을 이해하기 위한 {local} 상담 예시입니다. 동일한 수업이라도 필요한 복습과 과제량은 다를 수 있습니다.",
+        f"{local} 학부모가 피드백 내용을 비교할 수 있도록 만든 가상 후기이며, 상담 전후의 기록 확인이 우선입니다.",
+        f"아래 사례는 {local} {subject_label} 학습관리 방식을 설명하기 위한 예시입니다. 실제 변화는 학생의 실행 기록으로 확인합니다.",
+    ]
+    generated = stable_choice(notes, category, local, "review-note")
+    if not original_note:
+        return generated
+    if "예시" in original_note or "가상" in original_note:
+        return generated
+    return f"{original_note} {generated}"
 
 
 def has_batchim(text: str) -> bool:
@@ -196,7 +379,7 @@ def find_map(row: dict[str, str]) -> str:
             p = maps_dir / f"{base}{ext}"
             if p.exists():
                 return f"assets/maps/{p.name}"
-    return "assets/centers/common/local6839.jpg"
+    return "assets/centers/common/local6839.webp"
 
 
 def choose_random_rep_image(local: str, slug: str, tag: str) -> str:

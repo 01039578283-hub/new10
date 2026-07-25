@@ -6,6 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
+DOMAIN = "https://xn--9p4bn5e1r987b.com"
 CATEGORIES = ["와와학습코칭학원", "초등영어학원", "초등수학학원"]
 
 report_lines: list[str] = []
@@ -59,7 +60,7 @@ for CATEGORY in CATEGORIES:
 
         m = CANON_RE.search(text)
         canonical = m.group(1) if m else None
-        expected = f"/전국학원/{CATEGORY}/{slug}/"
+        expected = f"{DOMAIN}/전국학원/{CATEGORY}/{slug}/"
         if canonical != expected:
             grand_canon_bad.append((tag, canonical))
 

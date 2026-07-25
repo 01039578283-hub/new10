@@ -63,6 +63,8 @@ region_blocks_html = shared.region_blocks_html
 cross_category_links_html = shared.cross_category_links_html
 FEE_TABLE_SEOUL = shared.FEE_TABLE_SEOUL
 FEE_TABLE_OTHER = shared.FEE_TABLE_OTHER
+image_dimensions = shared.image_dimensions
+local_copy_variant = shared.local_copy_variant
 
 
 # ---------------------------------------------------------------------------
@@ -223,7 +225,8 @@ def contextualize_repeated_paragraph(
     paragraph_index: int,
     repeated_signatures: set[str],
 ) -> str:
-    if paragraph_signature(value, local) not in repeated_signatures:
+    force_context = CATEGORY in {"중2영어학원", "중3수학학원"} and paragraph_index == 0
+    if paragraph_signature(value, local) not in repeated_signatures and not force_context:
         return value
     seed = f"{CATEGORY}|{local}|{section_title}|{section_index}|{paragraph_index}".encode("utf-8")
     digest = hashlib.sha256(seed).digest()
@@ -254,30 +257,7 @@ def contextualize_repeated_paragraph(
 
 
 def compact_meta_description(value: str, title: str, index: int) -> str:
-    description = re.sub(r"\s+", " ", value).strip()
-    if 80 <= len(description) <= 155:
-        return description
-    variants = [
-        f"학생 진단, 학교 자료 확인, {FOCUS_LABEL} 관련 상담 전 확인 항목을 정리했습니다.",
-        f"최근 오답과 학교 시험 범위를 바탕으로 {FOCUS_LABEL} 관련 상담 질문과 위치 정보를 안내합니다.",
-        f"학생의 반복 오류와 {FOCUS_LABEL} 관련 상담 전 점검 항목을 확인할 수 있습니다.",
-        f"학생의 학습 기록과 {FOCUS_LABEL} 관련 상담 기준을 함께 살펴봅니다.",
-    ]
-    first_sentence_match = re.match(r"(.+?[.!?])(?:\s|$)", description)
-    first_sentence = (
-        first_sentence_match.group(1).strip()
-        if first_sentence_match
-        else f"{title} 선택 기준을 안내합니다."
-    )
-    candidate = f"{first_sentence} {variants[index % len(variants)]}"
-    if len(candidate) <= 155:
-        return candidate if len(candidate) >= 80 else description[:155]
-    suffix = " 핵심 학습관리와 상담 기준을 정리했습니다."
-    allowed = 155 - len(suffix)
-    shortened = candidate[:allowed].rstrip(" ,·")
-    if " " in shortened:
-        shortened = shortened.rsplit(" ", 1)[0].rstrip(" ,·")
-    return f"{shortened}{suffix}"[:155].rstrip(" ,·")
+    return shared.compact_local_meta(value, title, FOCUS_LABEL, index)
 
 
 # ---------------------------------------------------------------------------
@@ -378,8 +358,8 @@ def page_ld(
             {
                 "@type": ["EducationalOrganization", "LocalBusiness"],
                 "@id": org_id,
-                "name": title,
-                "alternateName": [SITE_NAME, center, f"{local} {SUBJECT_LABEL} 학습관리"],
+                "name": center,
+                "alternateName": [SITE_NAME, title, f"{local} {SUBJECT_LABEL} 학습관리"],
                 "url": canonical,
                 "telephone": PHONE_DISPLAY,
                 "openingHours": "Mo-Sa 12:00-24:00",
@@ -488,18 +468,38 @@ def detail_page(
     schools = school_names(row)
 
     title = manuscript["페이지타이틀"].strip()
-    description = compact_meta_description(manuscript["메타설명"], title, index)
-    summary = re.sub(r"\s+", " ", manuscript["JSON-LD 요약"]).strip()
+    description = compact_meta_description(shared.normalize_editorial_copy(manuscript["메타설명"]), title, index)
+    summary = shared.clean_json_summary(shared.normalize_editorial_copy(manuscript["JSON-LD 요약"]), title)
     intro, sections = parse_body(manuscript["본문"])
+    intro = [shared.normalize_editorial_copy(paragraph) for paragraph in intro]
+    sections = [
+        (shared.normalize_editorial_copy(section_title), [shared.normalize_editorial_copy(paragraph) for paragraph in paragraphs])
+        for section_title, paragraphs in sections
+    ]
     sections = order_sections_for_page(sections, local)
-    faqs = parse_faq(manuscript["FAQ"])
+    faqs = [
+        (shared.normalize_editorial_copy(question), shared.normalize_editorial_copy(answer))
+        for question, answer in parse_faq(manuscript["FAQ"])
+    ]
     review_note, review_quotes = parse_review(manuscript["학부모후기"])
+    review_note = shared.normalize_editorial_copy(review_note)
+    review_quotes = [shared.normalize_editorial_copy(quote) for quote in review_quotes]
+    faqs = [
+        (
+            question,
+            f"{answer} {shared.faq_context_sentence(category=CATEGORY, local=local, region=region, district=district, subject_label=SUBJECT_LABEL, item_index=faq_index)}",
+        )
+        for faq_index, (question, answer) in enumerate(faqs)
+    ]
+    review_note = shared.review_note_variant(
+        category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, original_note=review_note
+    )
 
     canonical_path = f"/{PARENT}/{CATEGORY}/{slug}/"
     canonical = DOMAIN + canonical_path
     rep_path = shared.choose_random_rep_image(local, slug, "me3math")
     rep_image_abs = DOMAIN + "/" + rep_path
-    center_img = "assets/centers/common/seoul6839.jpg" if region == "서울" else "assets/centers/common/local6839.jpg"
+    center_img = "assets/centers/common/seoul6839.webp" if region == "서울" else "assets/centers/common/local6839.webp"
     map_img = find_map(row)
     center_image_abs = DOMAIN + "/" + center_img
     map_image_abs = DOMAIN + "/" + map_img
@@ -546,11 +546,14 @@ def detail_page(
     rep_rel = "../../../" + rep_path
     center_rel = "../../../" + center_img
     map_rel = "../../../" + map_img
+    rep_width, rep_height = image_dimensions(rep_path)
+    center_width, center_height = image_dimensions(center_img)
+    map_width, map_height = image_dimensions(map_img)
     media_section = f"""    <section class="section">
-      <img src="{esc(rep_rel)}" alt="{esc(title + ' ' + SITE_NAME + ' 대표')}" style="display:none;">
+      <img src="{esc(rep_rel)}" alt="{esc(title + ' ' + SITE_NAME + ' 대표')}" width="{rep_width}" height="{rep_height}" decoding="async" style="display:none;">
       <div class="media-row">
-        <figure class="frame"><img src="{esc(center_rel)}" alt="{esc(title + ' 본문 ' + SITE_NAME)}"></figure>
-        <figure class="frame"><img src="{esc(map_rel)}" alt="{esc(title + ' 지도 ' + SITE_NAME)}"></figure>
+        <figure class="frame"><img src="{esc(center_rel)}" alt="{esc(title + ' 본문 ' + SITE_NAME)}" width="{center_width}" height="{center_height}" decoding="async" fetchpriority="high"></figure>
+        <figure class="frame"><img src="{esc(map_rel)}" alt="{esc(title + ' 지도 ' + SITE_NAME)}" width="{map_width}" height="{map_height}" loading="lazy" decoding="async"></figure>
       </div>
       <p class="lead">{esc(center)} 기준으로 {esc(local)} 학생의 상담 범위를 확인합니다. 실제 방문·상담 전에는 주소와 이동 동선을 함께 확인해 주세요.</p>
     </section>"""
@@ -558,7 +561,7 @@ def detail_page(
     summary_section = f"""    <section class="section">
       <div class="section-head">
         <p class="eyebrow">핵심 요약</p>
-        <h2>{esc(title)} 30초 요약</h2>
+        <h2>{esc(local_copy_variant("summary_heading", category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, site_name=SITE_NAME))}</h2>
         <p class="lead">{esc(summary)}</p>
       </div>
     </section>"""
@@ -588,8 +591,8 @@ def detail_page(
       </div>
       <div class="card-grid">
         <article class="info-card"><span class="tag">지역</span><h3>{esc(region)} {esc(district)} {esc(local)}</h3><p>{esc(local)} 생활권 학생의 학교 진도와 시험 일정에 맞춰 {esc(SUBJECT_LABEL)} 관리 방향을 상담합니다.</p></article>
-        <article class="info-card"><span class="tag">학년</span><h3>{esc(GRADE_TEXT)}</h3><p>같은 학년이라도 단원별 결손이 다르므로 진단 후 우선순위를 다르게 잡습니다.</p></article>
-        <article class="info-card"><span class="tag">추천</span><h3>이런 학생에게 추천</h3><p>반복 실수 교정과 단원별 성적 해석을 함께 보완해야 하는 학생, 선행보다 복습이 먼저 필요한 학생, 내신전략을 체계적으로 세우려는 학생에게 적합합니다.</p></article>
+        <article class="info-card"><span class="tag">학년</span><h3>{esc(GRADE_TEXT)}</h3><p>{esc(local)} 학생은 같은 학년이어도 단원별 결손과 시험까지 남은 시간이 다르므로 최근 풀이를 진단한 뒤 우선순위를 정합니다.</p></article>
+        <article class="info-card"><span class="tag">추천</span><h3>이런 학생에게 추천</h3><p>{esc(local)}에서 반복 실수와 단원별 성적 해석을 함께 보완하거나, 선행보다 복습이 먼저 필요하고 내신전략의 순서를 세우려는 학생에게 적합합니다.</p></article>
       </div>
       <p class="lead" style="margin-top:18px;">수업 가능 학교 참고</p>
       <div class="chip-list">{school_chip_html}</div>
@@ -603,7 +606,7 @@ def detail_page(
       <div class="section-head">
         <p class="eyebrow">일반 학원과의 차이</p>
         <h2>{esc(local)} {esc(SUBJECT_LABEL)}학원, 무엇이 다른가요</h2>
-        <p class="lead">일반적인 학원 운영 방식과 {esc(SITE_NAME)}의 관리 방식을 같은 기준으로 비교했습니다.</p>
+        <p class="lead">{esc(local_copy_variant("compare_lead", category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, site_name=SITE_NAME))}</p>
       </div>
       <div class="compare-table">
         <div class="compare-head"><div>일반적인 학원</div><div>기준</div><div class="ours">{esc(SITE_NAME)}</div></div>
@@ -633,22 +636,22 @@ def detail_page(
       <div class="section-head">
         <p class="eyebrow">TUITION</p>
         <h2>{esc(local)} {esc(SUBJECT_LABEL)}학원 학습료 안내</h2>
-        <p class="lead">{esc(fee_region_label)}으로 안내되는 학습료입니다. 실제 금액은 상담 시 학생 과정과 교육청 신고 기준에 따라 확인해 주세요.</p>
+        <p class="lead">{esc(local)}에서 확인하는 {esc(fee_region_label)} 학습료입니다. 실제 금액은 상담 시 학생 과정과 교육청 신고 기준에 따라 확인해 주세요.</p>
       </div>
       <div class="fee-table-wrap">
-        <p class="fee-caption">{esc(fee_region_label)} · 1회 90~100분 수업</p>
+        <p class="fee-caption">{esc(local)} · {esc(fee_region_label)} · 1회 90~100분 수업</p>
         <table class="fee-table">
           <thead><tr><th>횟수</th><th>초등</th><th class="highlight">중등</th><th>고등</th></tr></thead>
           <tbody>
             {fee_rows_html}
           </tbody>
         </table>
-        <p class="fee-note">* 학습료는 지역, 수업 조건, 교육청 신고 기준에 따라 일부 차이가 있을 수 있습니다.</p>
+        <p class="fee-note">* {esc(local_copy_variant("fee_note", category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, site_name=SITE_NAME))}</p>
       </div>
     </section>"""
 
     checklist_html = "".join(
-        f'<article class="info-card"><span class="tag">{i + 1}</span><h3>{esc(q)}</h3><p>{esc(a)}</p></article>'
+        f'<article class="info-card"><span class="tag">{i + 1}</span><h3>{esc(q)}</h3><p>{esc(local)} 상담 준비: {esc(a)}</p></article>'
         for i, (q, a) in enumerate(CHECKLIST_BANK)
     )
     checklist_section = f"""    <section class="section">
@@ -710,7 +713,7 @@ def detail_page(
       <div class="section-head">
         <p class="eyebrow">근처 학원페이지</p>
         <h2>{esc(local)} 주변 {esc(CATEGORY)} 페이지</h2>
-        <p class="lead">같은 지역의 다른 카테고리와, 가까운 지역 페이지로 이동할 수 있도록 정리했습니다.</p>
+        <p class="lead">{esc(local_copy_variant("link_lead", category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, site_name=SITE_NAME))}</p>
       </div>
       <div class="link-grid">
         <a href="../index.html"><strong>{esc(CATEGORY)} 전체</strong><small>카테고리 허브</small></a>

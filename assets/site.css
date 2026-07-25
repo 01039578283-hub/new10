@@ -1,7 +1,7 @@
 :root {
   --ink: #2b2420;
   --ink-soft: #6f6259;
-  --ink-faint: #9c9088;
+  --ink-faint: #71645c;
   --cream: #faf6ef;
   --cream-deep: #f1e6d8;
   --card: #ffffff;
@@ -1298,6 +1298,20 @@ h3 {
   .feature-row {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .floating-cta {
+    right: 8px;
+    bottom: 8px;
+    gap: 5px;
+  }
+
+  .floating-cta a {
+    height: 34px;
+    padding: 0 11px;
+    border: 1px solid var(--line);
+    font-size: 11.5px;
+    box-shadow: 0 4px 12px rgba(43, 36, 32, 0.1);
   }
 }
 
