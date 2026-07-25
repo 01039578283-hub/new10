@@ -17,7 +17,7 @@
   --radius-md: 14px;
   --radius-sm: 10px;
   --max: 1080px;
-  --sans: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --sans: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
 }
 
 * {
@@ -722,7 +722,7 @@ h3 {
 
 .media-row .frame img {
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: auto;
   object-fit: contain;
   display: block;

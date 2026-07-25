@@ -345,9 +345,6 @@ def head_html(title: str, description: str, depth: int, canonical: str, og_type:
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:url" content="{esc(canonical)}">
   <meta property="og:image" content="{esc(image)}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="{p}assets/favicon.png">
   <link rel="apple-touch-icon" href="{p}assets/favicon.png">
   <link rel="stylesheet" href="{p}assets/site.css">

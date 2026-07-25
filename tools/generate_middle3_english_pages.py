@@ -501,6 +501,7 @@ def detail_page(
     rep_path = shared.choose_random_rep_image(local, slug, "me3eng")
     rep_image_abs = DOMAIN + "/" + rep_path
     center_img = "assets/centers/common/seoul6839.webp" if region == "서울" else "assets/centers/common/local6839.webp"
+    center_img_small = center_img.replace(".webp", "-720.webp")
     map_img = find_map(row)
     center_image_abs = DOMAIN + "/" + center_img
     map_image_abs = DOMAIN + "/" + map_img
@@ -546,6 +547,7 @@ def detail_page(
 
     rep_rel = "../../../" + rep_path
     center_rel = "../../../" + center_img
+    center_small_rel = "../../../" + center_img_small
     map_rel = "../../../" + map_img
     rep_width, rep_height = image_dimensions(rep_path)
     center_width, center_height = image_dimensions(center_img)
@@ -553,8 +555,8 @@ def detail_page(
     media_section = f"""    <section class="section">
       <img src="{esc(rep_rel)}" alt="{esc(title + ' ' + SITE_NAME + ' 대표')}" width="{rep_width}" height="{rep_height}" decoding="async" style="display:none;">
       <div class="media-row">
-        <figure class="frame"><img src="{esc(center_rel)}" alt="{esc(title + ' 본문 ' + SITE_NAME)}" width="{center_width}" height="{center_height}" decoding="async" fetchpriority="high"></figure>
-        <figure class="frame"><img src="{esc(map_rel)}" alt="{esc(title + ' 지도 ' + SITE_NAME)}" width="{map_width}" height="{map_height}" loading="lazy" decoding="async"></figure>
+        <figure class="frame" style="aspect-ratio:{center_width}/{center_height};"><img src="{esc(center_rel)}" srcset="{esc(center_small_rel)} 720w, {esc(center_rel)} {center_width}w" sizes="(max-width:900px) calc(100vw - 32px), 918px" alt="{esc(title + ' 본문 ' + SITE_NAME)}" width="{center_width}" height="{center_height}" decoding="async" fetchpriority="high"></figure>
+        <figure class="frame" style="aspect-ratio:{map_width}/{map_height};"><img src="{esc(map_rel)}" alt="{esc(title + ' 지도 ' + SITE_NAME)}" width="{map_width}" height="{map_height}" loading="lazy" decoding="async"></figure>
       </div>
       <p class="lead">{esc(center)} 기준으로 {esc(local)} 학생의 상담 범위를 확인합니다. 실제 방문·상담 전에는 주소와 이동 동선을 함께 확인해 주세요.</p>
     </section>"""
