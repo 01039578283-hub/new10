@@ -177,6 +177,156 @@ def local_copy_variant(kind: str, *, category: str, local: str, subject_label: s
     return stable_choice(banks[kind], category, local, kind)
 
 
+def subject_page_profile(
+    *, category: str, local: str, subject_label: str, schools: list[str]
+) -> dict[str, str]:
+    """Create a deterministic learning lens without inventing local facts."""
+    if "영어" in subject_label:
+        students = [
+            "단어는 외우지만 문장 안에서 뜻을 연결하는 데 시간이 걸리는 학생",
+            "문법 개념은 알아도 서술형 영작에서 조건을 빠뜨리는 학생",
+            "교과서 본문은 익숙하지만 변형 지문의 근거를 찾기 어려운 학생",
+            "독해 문제는 풀지만 오답 이유를 설명하기 어려운 학생",
+            "숙제는 마치지만 틀린 문장을 다시 써 보는 과정이 부족한 학생",
+            "단어 시험 편차가 커 누적 복습 간격을 다시 잡아야 하는 학생",
+            "본문 해석은 가능하지만 제한 시간 안에 끝내기 어려운 학생",
+            "선택형은 맞혀도 서술형 답안을 완전한 문장으로 쓰기 어려운 학생",
+            "어휘와 문법을 따로 공부해 실제 독해에 연결하지 못하는 학생",
+            "시험 직전에 암기량을 몰아 평소 복습 기록이 남지 않는 학생",
+            "지문 내용은 이해하지만 답의 근거 문장을 표시하지 않는 학생",
+            "오답 해설은 읽지만 같은 유형을 혼자 다시 풀지 않는 학생",
+        ]
+        evidence = [
+            "최근 영어 시험지의 서술형 감점 표시", "교과서 본문별 해석과 근거 표시",
+            "일주일 단어 시험의 누적 결과", "해설 없이 다시 작성한 영작 문장",
+            "학교 프린트와 교과서의 출제 범위", "지문별 풀이 시간과 오답 유형",
+            "수행평가 준비 일정과 제출 기록", "문법 단원별 선택지 판단 근거",
+            "재풀이 날짜가 적힌 독해 기록", "수업 뒤 학생이 남긴 질문 목록",
+            "본문 암기 뒤 변형 문제 정답률", "서술형 답안에서 반복된 문장 오류",
+        ]
+        actions = [
+            "어휘 복습과 본문 적용의 순서를 다시 정하는 것",
+            "틀린 문장을 해설 없이 한 번 더 완성하는 것",
+            "교과서와 학교 프린트의 복습 우선순위를 나누는 것",
+            "서술형 답안의 필수 조건을 짧게 목록화하는 것",
+            "독해 근거를 표시한 뒤 선택지를 다시 검토하는 것",
+            "단어 재시험 날짜를 미리 정해 누적 복습을 만드는 것",
+            "변형 문제를 풀기 전 본문 구조를 먼저 설명하는 것",
+            "풀이 시간을 기록해 지문별 시간 배분을 조절하는 것",
+            "오답 유형에 따라 다음 주 과제량을 다르게 배정하는 것",
+            "수행평가와 지필평가 준비를 한 주 계획에 함께 넣는 것",
+            "문법 개념을 실제 문장에 적용해 설명하는 것",
+            "다음 점검에서 같은 오류가 줄었는지 재확인하는 것",
+        ]
+    else:
+        students = [
+            "개념 설명은 이해하지만 문제의 첫 식을 세우기 어려운 학생",
+            "유형 문제는 풀어도 조건이 달라지면 적용 순서를 놓치는 학생",
+            "계산 실수가 잦지만 어느 단계에서 틀렸는지 표시하지 않는 학생",
+            "정답은 맞혀도 풀이 과정을 문장으로 설명하기 어려운 학생",
+            "숙제량은 채우지만 틀린 문제를 며칠 뒤 다시 풀지 않는 학생",
+            "한 단원 안에서도 개념과 응용의 편차가 큰 학생",
+            "시험 시간 안에 마지막 문제까지 도달하지 못하는 학생",
+            "서술형 풀이에서 식은 맞지만 필요한 조건을 빠뜨리는 학생",
+            "공식을 외워도 어떤 상황에 적용할지 판단하기 어려운 학생",
+            "선행 진도보다 이전 단원의 결손 확인이 먼저 필요한 학생",
+            "오답 노트는 만들지만 같은 실수의 원인을 분류하지 않는 학생",
+            "문장제에서 필요한 수치와 불필요한 정보를 구분하기 어려운 학생",
+        ]
+        evidence = [
+            "최근 수학 시험지의 오답 표시", "풀이 과정에서 처음 잘못된 식",
+            "학교 범위표와 교과서 진도", "해설 없이 다시 푼 문제의 결과",
+            "단원별 풀이 시간과 정답률", "서술형 답안에서 빠진 조건",
+            "주간 과제의 완료·미완료 기록", "오답을 다시 확인한 날짜",
+            "학생이 직접 설명한 풀이 근거", "교재별 완료 단원과 남은 범위",
+            "계산 실수가 발생한 단계", "유형을 바꿔 다시 푼 결과",
+        ]
+        actions = [
+            "첫 식을 세우기 전 조건을 짧게 다시 쓰는 것",
+            "개념 문제와 응용 문제의 복습 비율을 조정하는 것",
+            "계산 실수가 난 단계를 표시해 재확인하는 것",
+            "정답보다 풀이 근거를 먼저 설명하게 하는 것",
+            "오답을 사흘 뒤 해설 없이 다시 풀어 보는 것",
+            "시험 범위 안에서 우선 복습할 단원을 좁히는 것",
+            "문제별 풀이 시간을 기록해 시간 배분을 바꾸는 것",
+            "서술형에 필요한 식과 조건을 분리해 확인하는 것",
+            "비슷한 유형에서 달라진 조건을 먼저 비교하는 것",
+            "선행보다 이전 단원의 빈칸을 먼저 보완하는 것",
+            "주간 과제량을 재풀이 성공 여부에 맞춰 조정하는 것",
+            "다음 점검일에 같은 실수가 줄었는지 비교하는 것",
+        ]
+    seed = seed_for(category, local, "subject-page-profile")
+    return {
+        "student": students[seed % len(students)],
+        "evidence": evidence[(seed // len(students)) % len(evidence)],
+        "action": actions[(seed // (len(students) * len(evidence))) % len(actions)],
+        "school": schools[seed % len(schools)] if schools else "재학 학교",
+    }
+
+
+def individualized_faq_context(
+    *, category: str, local: str, region: str, district: str,
+    subject_label: str, item_index: int, profile: dict[str, str]
+) -> str:
+    """Add a varied, evidence-led decision aid to one FAQ answer."""
+    checks = [
+        "상담 당일 확인할 자료", "첫 주에 남길 기록", "시험 전 다시 볼 항목",
+        "가정에서 확인할 기준", "수업 후 비교할 변화", "다음 상담에 가져갈 근거",
+        "과제량을 조정할 신호", "교재 난도를 바꿀 조건", "복습 순서를 정할 자료",
+        "학생 설명에서 확인할 부분", "학부모 피드백에 남길 내용", "재풀이 날짜를 잡을 기준",
+    ]
+    seed = seed_for(category, local, "faq-individual", str(item_index))
+    location = " ".join(part for part in (region, district, local) if part)
+    student, evidence = profile["student"], profile["evidence"]
+    action, school = profile["action"], profile["school"]
+    check = checks[seed % len(checks)]
+    evidence_obj = f"{evidence}{eul_reul(evidence)}"
+    evidence_and = f"{evidence}{'과' if has_batchim(evidence) else '와'}"
+    evidence_subject = f"{evidence}{'이' if has_batchim(evidence) else '가'}"
+    check_obj = f"{check}{eul_reul(check)}"
+    check_and = f"{check}{'과' if has_batchim(check) else '와'}"
+    templates = [
+        f"{location}에서는 {student}인지 먼저 살펴보세요. {evidence_obj} {school} 관련 학교 자료와 함께 보면 {check_obj} 더 구체적으로 정할 수 있습니다.",
+        f"이 질문은 {local}에서 {student}을 상담할 때 특히 중요합니다. {evidence_obj} 확인한 뒤에는 {action}까지 계획에 남기는 편이 좋습니다.",
+        f"{school} 등 제공된 학교 정보를 참고하되 실제 판단은 학생이 가져온 자료로 해야 합니다. {local} 상담에서는 {evidence_obj} 바탕으로 {check_obj} 정해 보세요.",
+        f"같은 {subject_label} 과정이라도 {student}에게 필요한 순서는 다릅니다. {evidence_obj} 먼저 확인하고 {action}으로 이어지는지 질문해 보세요.",
+        f"{local} 학부모라면 설명만 듣기보다 {evidence_subject} 기록으로 남는지 확인할 수 있습니다. 그 기록을 기준으로 {action}까지 합의하면 판단이 쉬워집니다.",
+        f"상담에서는 {student}이라는 가정을 세운 뒤 실제 자료와 맞는지 비교해 보세요. {school} 관련 범위와 {evidence_subject} 일치하는지 보면 {check}도 선명해집니다.",
+        f"{location} {subject_label} 상담의 핵심은 학생마다 다른 시작점을 확인하는 것입니다. {evidence}에서 신호를 찾고 {action}을 다음 단계로 정해 보세요.",
+        f"이 항목은 한 번의 점수보다 {evidence}의 변화로 판단하는 편이 정확합니다. {local}에서는 {student}에게 {action}이 실행 가능한지도 함께 확인해 보세요.",
+        f"{local} 상담 전에는 {school} 관련 범위 자료와 {evidence_obj} 준비하면 좋습니다. 두 자료를 비교하면 {check_and} {action}을 한 흐름으로 정리할 수 있습니다.",
+        f"학생이 {student}이라면 획일적인 진도보다 확인 순서가 중요합니다. {evidence_obj} 근거로 삼아 {action}이 실제 수업에 포함되는지 물어보세요.",
+        f"{location}에서 이 기준을 적용할 때는 현재 기록과 다음 행동을 나누어 봅니다. 현재 기록은 {evidence}, 다음 행동은 {action}으로 정리할 수 있습니다.",
+        f"학교명만으로 수업을 정하기보다 {school} 관련 자료에서 학생의 실제 오류를 확인해야 합니다. {local} 상담에서는 {evidence_and} {check_obj} 함께 비교해 보세요.",
+    ]
+    return templates[(seed // len(checks)) % len(templates)]
+
+
+def individualized_review_example(
+    value: str, *, category: str, local: str, subject_label: str,
+    item_index: int, profile: dict[str, str]
+) -> str:
+    """Contextualize an editorial example without implying a real result."""
+    seed = seed_for(category, local, "review-example", str(item_index))
+    student, evidence = profile["student"], profile["evidence"]
+    action, school = profile["action"], profile["school"]
+    evidence_obj = f"{evidence}{eul_reul(evidence)}"
+    evidence_and = f"{evidence}{'과' if has_batchim(evidence) else '와'}"
+    templates = [
+        f"{local}에서 {student} 상황을 가정한 상담 예시입니다. {value} 이후에는 {evidence_and} {action}을 확인 항목으로 정리했습니다.",
+        f"{value} 이 사례는 {local} {subject_label} 상담 흐름을 설명하기 위한 예시이며, {evidence_obj} 살핀 뒤 {action}으로 이어지는 과정을 보여 줍니다.",
+        f"{school} 관련 자료를 준비한 {local} 학생의 가상 상담 장면으로 보면 좋습니다. {value} 확인 기준은 {evidence_and} {action}이었습니다.",
+        f"{local} 학부모가 {student} 문제를 질문한 상황을 재구성했습니다. {value} 상담 뒤에는 {evidence_obj} 다시 보고 {action}을 다음 단계로 삼았습니다.",
+        f"{value} 실제 결과를 뜻하는 후기가 아니라 {local}에서 확인할 관리 과정을 보여 주는 예시입니다. 핵심은 {evidence_obj} 근거로 {action}을 정하는 데 있습니다.",
+        f"{local} {subject_label} 상담에서 나올 수 있는 상황을 예시로 정리했습니다. {student}에게는 {evidence} 확인과 {action}이 함께 필요하다는 내용입니다. {value}",
+        f"이 문장은 {local} 학생의 상담 과정을 이해하기 위한 가상 사례입니다. {value} 이후 점검에서는 {evidence_and} {action}을 따로 기록했습니다.",
+        f"{student}이라는 조건을 놓고 {local} 상담을 재구성한 예시입니다. {value} 다음 계획은 {evidence_obj} 확인하고 {action}을 실행하는 순서였습니다.",
+        f"{value} {local}에서 같은 고민을 하는 경우라면 {school} 관련 자료와 {evidence_obj} 먼저 비교하고, {action}까지 상담 질문에 포함할 수 있습니다.",
+        f"{local} 학부모의 질문을 설명하기 위한 편집 예시입니다. {value} 변화 여부는 {evidence}에서 확인하고 다음 단계는 {action}으로 정리합니다.",
+    ]
+    return templates[seed % len(templates)]
+
+
 def faq_context_sentence(
     *,
     category: str,

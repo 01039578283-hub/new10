@@ -225,6 +225,7 @@ def contextualize_repeated_paragraph(
     section_index: int,
     paragraph_index: int,
     repeated_signatures: set[str],
+    profile: dict[str, str],
 ) -> str:
     force_context = CATEGORY in {"중2영어학원", "중3수학학원"} and paragraph_index == 0
     if paragraph_signature(value, local) not in repeated_signatures and not force_context:
@@ -243,14 +244,24 @@ def contextualize_repeated_paragraph(
         "재풀이 성공 여부", "학교 자료 복습 순서", "주간 최소 학습량", "상담 후 점검 항목",
     ][digest[1] % 11]
     location = " ".join(part for part in (region, district, local) if part)
+    student, school = profile["student"], profile["school"]
+    action = profile["action"]
+    evidence_obj = f"{evidence}{shared.eul_reul(evidence)}"
+    evidence_and = f"{evidence}{'과' if shared.has_batchim(evidence) else '와'}"
+    outcome_obj = f"{outcome}{shared.eul_reul(outcome)}"
+    outcome_and = f"{outcome}{'과' if shared.has_batchim(outcome) else '와'}"
+    action_and = f"{action}{'과' if shared.has_batchim(action) else '와'}"
     templates = [
-        f"{location} 상담에서는 {evidence} 항목과 {outcome} 항목을 함께 정리해야 이 기준을 실제 학습 계획으로 옮기기 쉽습니다.",
-        f"이 기준을 {local} 학생에게 적용할 때는 확인 자료로 {evidence} 항목을 살핀 뒤, 후속 계획으로 {outcome} 항목을 정하는 순서가 적절합니다.",
-        f"{local}의 실제 계획에는 {evidence} 점검과 {outcome} 설정이 함께 들어가야 상담 내용이 수업 후에도 이어집니다.",
-        f"학부모가 {local}에서 이 항목을 비교한다면 {evidence} 관리 방식과 {outcome} 설정 기준을 물어볼 수 있습니다.",
-        f"{location}에서는 {evidence} 자료를 판단 근거로 삼고, 상담 후에는 {outcome} 내용을 짧게 정리해 두는 편이 좋습니다.",
-        f"학생의 설명을 들은 뒤 {evidence} 항목을 확인하고 {outcome} 기준을 함께 정하면 {local}의 학습 계획이 더 구체적으로 바뀝니다.",
-        f"{section_title} 내용을 점검할 때 {local}에서는 {evidence} 점검과 {outcome} 설정을 한 흐름으로 연결해 보는 것이 좋습니다.",
+        f"{location}에서는 {student}인지 먼저 확인합니다. {evidence_and} {school} 관련 학교 자료를 함께 살핀 뒤 {outcome_obj} 정하면 이 기준을 실제 계획으로 옮기기 쉽습니다.",
+        f"이 기준을 {local} 학생에게 적용할 때는 {evidence_obj} 확인 자료로 삼습니다. 그 결과를 바탕으로 {action_and} {outcome_obj} 구분해 기록하는 순서가 적절합니다.",
+        f"{local}의 실제 계획은 {student}이라는 가정이 맞는지 검토하는 데서 시작합니다. {evidence} 점검 뒤 {outcome}까지 정해야 상담 내용이 수업 후에도 이어집니다.",
+        f"학부모가 {local}에서 이 항목을 비교한다면 {school} 관련 범위와 {evidence} 관리 방식을 함께 물어볼 수 있습니다. 이후에는 {action}을 다음 행동으로 남겨 보세요.",
+        f"{location}에서는 {evidence_obj} 판단 근거로 삼고 {outcome_obj} 후속 기준으로 정리합니다. 특히 {student}에게는 두 기록의 연결 여부가 중요합니다.",
+        f"학생의 설명을 들은 뒤 {evidence_obj} 확인하면 현재 막힌 지점을 구분할 수 있습니다. {local} 계획에는 {action_and} {outcome_obj} 함께 넣어 다음 점검까지 이어가세요.",
+        f"{section_title} 내용을 점검할 때 {local}에서는 {school} 관련 학교 자료와 {evidence_obj} 한 흐름으로 봅니다. {student}이라면 {action}을 우선순위로 둘 수 있습니다.",
+        f"같은 {SUBJECT_LABEL} 과정이어도 {student}에게 필요한 시작점은 다릅니다. {local} 상담에서는 {evidence_obj} 근거로 {outcome_obj} 정하고 {action}까지 실행 가능한지 확인하세요.",
+        f"{local}에서 이 문단을 상담 질문으로 바꾸려면 현재 기록과 다음 행동을 나누어야 합니다. 현재 기록은 {evidence}, 다음 행동은 {action}으로 구체화할 수 있습니다.",
+        f"{school} 등 제공 학교 정보는 범위를 확인하는 참고자료로 사용합니다. {local} 학생에게는 {evidence}에서 오류를 찾은 뒤 {outcome_and} {action}을 연결하는 과정이 필요합니다.",
     ]
     base = value.rstrip()
     separator = "" if base.endswith((".", "?", "!", "다.", "요.")) else "."
@@ -467,6 +478,9 @@ def detail_page(
     reg_no = row.get("교육지원청 등록번호", "").strip()
     education_name = row.get("교육지원청명칭", "").strip()
     schools = school_names(row)
+    profile = shared.subject_page_profile(
+        category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, schools=schools
+    )
 
     title = manuscript["페이지타이틀"].strip()
     description = compact_meta_description(shared.normalize_editorial_copy(manuscript["메타설명"]), title, index)
@@ -488,9 +502,16 @@ def detail_page(
     faqs = [
         (
             question,
-            f"{answer} {shared.faq_context_sentence(category=CATEGORY, local=local, region=region, district=district, subject_label=SUBJECT_LABEL, item_index=faq_index)}",
+            f"{answer} {shared.individualized_faq_context(category=CATEGORY, local=local, region=region, district=district, subject_label=SUBJECT_LABEL, item_index=faq_index, profile=profile)}",
         )
         for faq_index, (question, answer) in enumerate(faqs)
+    ]
+    review_quotes = [
+        shared.individualized_review_example(
+            quote, category=CATEGORY, local=local, subject_label=SUBJECT_LABEL,
+            item_index=review_index, profile=profile,
+        )
+        for review_index, quote in enumerate(review_quotes)
     ]
     review_note = shared.review_note_variant(
         category=CATEGORY, local=local, subject_label=SUBJECT_LABEL, original_note=review_note
@@ -524,7 +545,7 @@ def detail_page(
         contextualize_repeated_paragraph(
             paragraph, local=local, region=region, district=district,
             section_title=f"{title} 핵심 요약", section_index=-1, paragraph_index=pi,
-            repeated_signatures=repeated_signatures,
+            repeated_signatures=repeated_signatures, profile=profile,
         )
         for pi, paragraph in enumerate(intro)
     ]
@@ -535,7 +556,7 @@ def detail_page(
                 contextualize_repeated_paragraph(
                     paragraph, local=local, region=region, district=district,
                     section_title=section_title, section_index=si, paragraph_index=pi,
-                    repeated_signatures=repeated_signatures,
+                    repeated_signatures=repeated_signatures, profile=profile,
                 )
                 for pi, paragraph in enumerate(paragraphs)
             ],
@@ -593,9 +614,9 @@ def detail_page(
         <h2>지역·학년·추천학생 기준</h2>
       </div>
       <div class="card-grid">
-        <article class="info-card"><span class="tag">지역</span><h3>{esc(region)} {esc(district)} {esc(local)}</h3><p>{esc(local)} 생활권 학생의 학교 진도와 시험 일정에 맞춰 {esc(SUBJECT_LABEL)} 관리 방향을 상담합니다.</p></article>
-        <article class="info-card"><span class="tag">학년</span><h3>{esc(GRADE_TEXT)}</h3><p>{esc(local)} 학생은 같은 학년이어도 어휘·문법·독해·서술형의 약점이 다르므로 최근 학교 자료를 진단한 뒤 우선순위를 정합니다.</p></article>
-        <article class="info-card"><span class="tag">추천</span><h3>이런 학생에게 추천</h3><p>{esc(local)}에서 과제는 하지만 오답 이유를 설명하지 못하거나, 단어는 알아도 지문 해석에서 막히고 내신 서술형 대비의 순서를 잡기 어려운 학생에게 적합합니다.</p></article>
+        <article class="info-card"><span class="tag">지역</span><h3>{esc(region)} {esc(district)} {esc(local)}</h3><p>{esc(profile['school'])} 등 제공된 학교 자료와 {esc(profile['evidence'] + shared.eul_reul(profile['evidence']))} 함께 확인해 {esc(local)} 학생의 {esc(SUBJECT_LABEL)} 시작점을 정합니다.</p></article>
+        <article class="info-card"><span class="tag">학년</span><h3>{esc(GRADE_TEXT)}</h3><p>{esc(GRADE_TEXT)} 단계에서는 {esc(profile['student'])}인지 살핀 뒤, 학교 진도와 시험 일정에 맞춰 복습 순서를 조정합니다.</p></article>
+        <article class="info-card"><span class="tag">추천</span><h3>이런 학생에게 추천</h3><p>{esc(local)}에서 {esc(profile['student'])}이라면 {esc(profile['action'])}을 상담의 첫 실행 기준으로 확인해 볼 수 있습니다.</p></article>
       </div>
       <p class="lead" style="margin-top:18px;">수업 가능 학교 참고</p>
       <div class="chip-list">{school_chip_html}</div>
