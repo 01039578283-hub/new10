@@ -32,6 +32,8 @@ from zipfile import ZipFile
 
 from PIL import Image
 
+from add_subject_anchor_tocs import enhance_detail_html
+
 
 DOMAIN = "https://xn--9p4bn5e1r987b.com"
 SITE_NAME = "영수학원"
@@ -1192,7 +1194,7 @@ def render_detail(
 {link_section}
   </main>
 {footer_html(3)}"""
-    return to_crlf(page_shell(head, body)), manuscript, supported
+    return to_crlf(enhance_detail_html(page_shell(head, body))), manuscript, supported
 
 
 def render_region_directory(bundle: SourceBundle, profile: CategoryProfile) -> str:
@@ -1684,7 +1686,10 @@ def validate_detail(
     authored_chars = len(authored_text)
     if not 2000 <= authored_chars <= 7500:
         raise ValueError(f"authored length out of range: {document.path}: {authored_chars}")
-    h2_values = tuple(strip_tags(value) for value in re.findall(r"<h2>(.*?)</h2>", fragment, flags=re.DOTALL))
+    h2_values = tuple(
+        strip_tags(value)
+        for value in re.findall(r"<h2\b[^>]*>(.*?)</h2>", fragment, flags=re.DOTALL)
+    )
     if not 5 <= len(h2_values) <= 8:
         raise ValueError(f"authored H2 count: {document.path}: {len(h2_values)}")
     heading_openings = tuple(

@@ -5,6 +5,8 @@ import re
 from collections import Counter
 from itertools import permutations
 from pathlib import Path
+
+from add_subject_anchor_tocs import enhance_detail_html
 from zipfile import ZipFile
 
 import generate_wawa_academy_pages as shared
@@ -915,7 +917,9 @@ def main() -> None:
         out = SITE / PARENT / CATEGORY / slug_ko(local) / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
-            detail_page(row, index, manuscripts[local], rows, repeated_signatures),
+            enhance_detail_html(
+                detail_page(row, index, manuscripts[local], rows, repeated_signatures)
+            ),
             encoding="utf-8",
         )
     print(
