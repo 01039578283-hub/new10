@@ -5,3 +5,5 @@ __pycache__/
 .env.*
 .git/
 node_modules/
+PROJECT_HANDOFF.md
+CHAT_HISTORY_2026-07-03.md

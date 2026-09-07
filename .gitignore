@@ -5,5 +5,10 @@ __pycache__/
 .env*
 node_modules/
 
+# Keep stable audit evidence; local plans and deployment receipts stay private.
+tools/reports/*
+!tools/reports/title-suffix-audit.json
+!tools/reports/title-suffix-local-verification.json
+
 .vercel
 .env*
