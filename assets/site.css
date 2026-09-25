@@ -1379,6 +1379,16 @@ h3 {
   border-radius: 14px;
 }
 
+/* Six primary destinations remain legible after adding the branch directory. */
+.nav-links { flex-wrap: wrap; gap: 16px; }
+@media (max-width: 760px) {
+  .nav { width: calc(100% - 32px); flex-wrap: wrap; padding: 12px 0; gap: 8px; }
+  .brand span:last-child { display: inline; }
+  .nav-links { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 8px; }
+  .nav-links a { display: flex; align-items: center; justify-content: center; min-height: 42px; padding: 8px 4px; font-size: .875rem; line-height: 1.4; text-align: center; }
+  .branch-section { scroll-margin-top: 180px; }
+}
+
 @media (max-width: 900px) {
   .geo-card-grid,
   .geo-faq-review {

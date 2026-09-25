@@ -1,0 +1,14 @@
+/* Only branch descendants load this stylesheet; keep all shared pages untouched. */
+[data-branch-refinement] .refined-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 28px}
+[data-branch-refinement] .refined-related a{display:flex;flex-direction:column;justify-content:center;gap:7px;min-width:0;min-height:78px;padding:16px 18px;border:1px solid #d4c1af;border-radius:12px;background:#fff;color:#75402c;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere;text-decoration:none}
+[data-branch-refinement] .refined-related span{font-size:16px;font-weight:700}
+[data-branch-refinement] .refined-related small{font-size:14px;color:#645a52;line-height:1.6}
+[data-branch-refinement] .refined-related a:hover{background:#f8eee2;border-color:#9e5334}
+[data-branch-refinement] .refined-related a:focus-visible{outline:3px solid #8d3f25;outline-offset:3px}
+[data-branch-refinement] #stage-decision .refined-scope{font-weight:650;color:#77432e}
+[data-branch-refinement] #stage-route-guide>.branch-summary{font-size:16px;line-height:1.8;word-break:keep-all;overflow-wrap:anywhere}
+@media(max-width:650px){
+  [data-branch-refinement] .refined-related{grid-template-columns:1fr;gap:10px}
+  [data-branch-refinement] .refined-related a{padding:15px 16px}
+  [data-branch-refinement] #stage-decision .em-card p{font-size:16px;line-height:1.8}
+}

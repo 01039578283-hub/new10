@@ -4,6 +4,8 @@ __pycache__/
 .env.local
 .env*
 node_modules/
+public/
+.public-release/
 
 # Keep stable audit evidence; local plans and deployment receipts stay private.
 tools/reports/*
@@ -12,3 +14,9 @@ tools/reports/*
 
 .vercel
 .env*
+
+# Isolated public release: never commit derived output or private inputs.
+.public-release/
+node_modules/
+.env*
+tools/data/
