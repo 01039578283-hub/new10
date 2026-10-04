@@ -12,6 +12,17 @@ let documents=0, changed=0, present=0, skipped=0;
 const errors=[];
 const allowed=f=>!f.split(/[\\/]/).some(p=>p.startsWith('.')||skip.has(p));
 async function files() {
+  // The release builder has already verified this public allowlist. Reuse it
+  // instead of walking thousands of directories a second time on Windows.
+  const manifestFile=path.resolve('release-public-manifest.json');
+  if(root===path.resolve('.public-release') && fs.existsSync(manifestFile)) {
+    const manifest=JSON.parse(fs.readFileSync(manifestFile,'utf8'));
+    return Object.keys(manifest.files).filter(name=>name.endsWith('.html')&&allowed(name)).map(name=>{
+      const full=path.resolve(root,name);
+      if(!full.startsWith(root+path.sep))throw Error('Unsafe public HTML path');
+      return full;
+    });
+  }
   if(root===process.cwd() && fs.existsSync(path.join(root,'.git'))) {
     try {
       const names=execFileSync('git',['ls-files','-z','--','*.html'],{cwd:root,maxBuffer:32*1024*1024,encoding:'utf8',stdio:['ignore','pipe','pipe']}).split('\0').filter(Boolean);

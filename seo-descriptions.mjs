@@ -87,7 +87,16 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   if(list){for(const rel of JSON.parse(fs.readFileSync(list.slice(13),'utf8'))){
     const p=path.resolve(output,rel),inside=path.relative(output,p);
     if(inside.startsWith('..')||path.isAbsolute(inside)||!p.endsWith('.html'))throw Error('Unsafe scoped HTML path');processFile(p);
-  }}else walk(output);
+  }}else if(output===path.join(root,'.public-release')&&fs.existsSync(path.join(root,'release-public-manifest.json'))){
+    // Same public allowlist that the release builder verified. Avoid repeating
+    // the directory crawl; transform() keeps its content-preservation checks.
+    const manifest=JSON.parse(fs.readFileSync(path.join(root,'release-public-manifest.json'),'utf8'));
+    for(const rel of Object.keys(manifest.files).filter(name=>name.endsWith('.html'))){
+      const p=path.resolve(output,rel),inside=path.relative(output,p);
+      if(inside.startsWith('..')||path.isAbsolute(inside))throw Error('Unsafe public HTML path');
+      processFile(p);
+    }
+  }else walk(output);
   console.log(JSON.stringify({pages,changed,skipped,changedNodes:nodes,check,errors}));
   if(errors.length||(check&&changed))process.exitCode=1;
 }
