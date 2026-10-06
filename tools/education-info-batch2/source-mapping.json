@@ -1,0 +1,848 @@
+{
+  "publishedDate": "2026-10-06",
+  "seed": "161416645168115768774103307988989136085",
+  "previousArticleCount": 30,
+  "newArticleCount": 30,
+  "articles": [
+    {
+      "id": 31,
+      "folder": "도서관과 집 학습 환경 선택 시 어떤 장단점이 있을까요",
+      "sourceSha256": "188cb3b72cf57078f0934da9fd2a6f5070d4eae9f4714c696ab40d1e54c03642",
+      "title": "도서관과 집, 공부 장소를 고르는 5가지 기준",
+      "path": "/교육정보/도서관과-집-공부장소-선택/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/315fe5c764eec6d4c619.jpg",
+          "sha256": "315fe5c764eec6d4c61955a38a39864fcaa45dae93456b5cbfc1bdd93ac643b0",
+          "alt": "계획표와 필기구가 놓인 책상"
+        },
+        {
+          "public": "assets/education-info/photos/f75ab3dfd312fe48e0d6.jpg",
+          "sha256": "f75ab3dfd312fe48e0d6abacf7e056abcc19e6164dff85e43c3cad205ecdf450",
+          "alt": "책을 펼치고 노트에 쓰는 손"
+        },
+        {
+          "public": "assets/education-info/photos/f045cc8ec5f30071f3ef.jpg",
+          "sha256": "f045cc8ec5f30071f3ef4f4085d821c674d8025970eaa77bda5c0865676b7f0b",
+          "alt": "교복을 입고 책을 들고 있는 학생"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/managing-time/",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+      ]
+    },
+    {
+      "id": 32,
+      "folder": "방학동안에 학습 루틴 점검, 공부흐름을 안정적으로 만들기 위해",
+      "sourceSha256": "94b0cc3d19dbf17703d527fddac9485ee39ff31d317df069b122faf5dbb27375",
+      "title": "방학 공부 루틴 점검: 유지할 것과 바꿀 것 구분하기",
+      "path": "/교육정보/방학-공부루틴-점검/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/94fa9bcde93527e136ce.jpg",
+          "sha256": "94fa9bcde93527e136ceec584e311b8dddf42ec9af8e9b388f96e32c84c2d465",
+          "alt": "책 옆 답안지와 연필"
+        },
+        {
+          "public": "assets/education-info/photos/ec34d76daca577fc7f45.jpg",
+          "sha256": "ec34d76daca577fc7f45bab3ae8aa00c0951a1fb7ae7deca330ec7a7ecb1b110",
+          "alt": "책과 노트를 함께 살펴보는 두 사람"
+        },
+        {
+          "public": "assets/education-info/photos/7dc6e694112422dd14bc.jpg",
+          "sha256": "7dc6e694112422dd14bc32d184242fad954f01226c94bb7ef516b25f62e9e176",
+          "alt": "함께 서 있는 교복 차림의 학생들"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://ies.ed.gov/ncee/wwc/PracticeGuide/1"
+      ]
+    },
+    {
+      "id": 33,
+      "folder": "정기적인 상담과 피드백이 학생들에게 미치는 긍정적 영향 어떤 것들이 있을까요",
+      "sourceSha256": "fbba1842037bbb6810d7cdcaa15e1ebdbdaca82136228f36e255473fa8238984",
+      "title": "정기 학습 상담과 피드백, 다음 행동으로 연결하는 법",
+      "path": "/교육정보/학습상담-피드백-기록/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/1f38780a35128047976b.jpg",
+          "sha256": "1f38780a35128047976b03149ab089ff8323d73c308dfd7ce40fea7d1302afd2",
+          "alt": "책상에서 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/a267185efc7620843e24.jpg",
+          "sha256": "a267185efc7620843e24022e0267436b2c81c07f67334b514a68cda1ce2a3712",
+          "alt": "어른과 두 아이가 함께 서 있는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/ccc4311e80bea93204bb.jpg",
+          "sha256": "ccc4311e80bea93204bbbdccac91187b1afe7d0d01a6b64a81bf8310e678c9a1",
+          "alt": "책상에서 함께 자료를 보는 두 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+        "https://www.unicef.org/eca/stories/11-tips-communicating-your-teen"
+      ]
+    },
+    {
+      "id": 34,
+      "folder": "2학기별 맞춤형 학습 관리 자기주도적 습관을 형성하는 방법",
+      "sourceSha256": "09c9693172698323ba49018058b9b220c43ab97e12bb51bee3376bd833950e09",
+      "title": "2학기 학습 관리: 학생에게 계획의 주도권 넘기기",
+      "path": "/교육정보/2학기-학습관리-주도권/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/7abf7c0f8cdd79f60313.jpg",
+          "sha256": "7abf7c0f8cdd79f603135c3ea3f5d0f29d5d813530a1b27aa4fb2abd1aab5437",
+          "alt": "책상에서 책을 읽는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/ba3d17d8b3f7726ab734.jpg",
+          "sha256": "ba3d17d8b3f7726ab7347c46500add90dec269b6584d5130bdef5a6e905ab85a",
+          "alt": "책과 계획 자료를 살펴보는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/1e8aa7fa385117407404.jpg",
+          "sha256": "1e8aa7fa38511740740402202887b866959049d2cb8c0fcc94ce8809001f4134",
+          "alt": "펼친 노트에 쓰는 손"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/"
+      ]
+    },
+    {
+      "id": 35,
+      "folder": "공부하기 싫을 때, 동기부여 다시 찾는 법 - 지치지 않는 학습 습관의 비밀",
+      "sourceSha256": "75a10358820a76c0d422f6a89d53399fc74a743b6e058c396a50680a08be653b",
+      "title": "공부하기 싫을 때, 다시 시작하는 작은 절차",
+      "path": "/교육정보/공부하기-싫을때-재시작/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/b4b93017f4863f3c34af.jpg",
+          "sha256": "b4b93017f4863f3c34af7f3ea405c4be0a53d9bae2a596f9a05b7af70a691024",
+          "alt": "로봇과 노트북을 함께 살펴보는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/6267d9a033feff75ac20.jpg",
+          "sha256": "6267d9a033feff75ac20b96911327f2baebf3d1b57e866d563d4cd9b09963c52",
+          "alt": "교실 책상에서 필기하는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/f8b71a870d2c98a78252.jpg",
+          "sha256": "f8b71a870d2c98a782521550dc859b29b0911b6f7146bd91e9780d0eceddbb13",
+          "alt": "책상에서 공부하는 교복 차림의 학생"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/break-the-cycle-of-procrastination/",
+        "https://www.nhs.uk/mental-health/children-and-young-adults/advice-for-parents/help-your-child-beat-exam-stress/"
+      ]
+    },
+    {
+      "id": 36,
+      "folder": "수능에서의 시간 관리와 집중력 유지 방법 참고하세요",
+      "sourceSha256": "6bf66ba9a25ec4a593fcfa7fdaf9bd1aa6e72673b307162c05766464e5e4559e",
+      "title": "수능 시간 관리: 모의 연습에서 점검할 4가지",
+      "path": "/교육정보/수능-시간배분-실전점검/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/829a88e5c3da8b449848.jpg",
+          "sha256": "829a88e5c3da8b449848557a3a12999bb07a268658ae7719a0c1988e89be95c0",
+          "alt": "교실에서 함께 있는 학생들"
+        },
+        {
+          "public": "assets/education-info/photos/6fc5dcb3d47029b9cf28.jpg",
+          "sha256": "6fc5dcb3d47029b9cf28659df99de137efd6dff25e76199263095c0ebd433465",
+          "alt": "책과 태블릿으로 공부하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/9861e8d43a66d272d350.jpg",
+          "sha256": "9861e8d43a66d272d35026816967ff72a9ede913dcf9791bc049ad301b01f31e",
+          "alt": "교실에서 교재에 쓰는 손"
+        }
+      ],
+      "sources": [
+        "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=105756&lev=0&m=020402&s=moe",
+        "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/"
+      ]
+    },
+    {
+      "id": 37,
+      "folder": "지루한 과목 재미 찾는 방법 공부가 재미없다는 건 이상한 일이 아닐 수도 있어요",
+      "sourceSha256": "d531a33f608f0c1a6b3fc4b077b96f0ffddb1b0d3d95894169b7b33894295739",
+      "title": "지루한 과목, 막히는 지점과 흥미를 함께 찾기",
+      "path": "/교육정보/지루한-과목-흥미-찾기/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/7d695493106bb529dbce.jpg",
+          "sha256": "7d695493106bb529dbce0fe815d788ec37da71681d7e082cb0d0eb063fabd464",
+          "alt": "책과 태블릿으로 공부하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/b22df379eecc2499b796.jpg",
+          "sha256": "b22df379eecc2499b796414a7371be4654fe74ea399b657aa4e11a89c77a45bf",
+          "alt": "교실 책상에서 손을 든 학생"
+        },
+        {
+          "public": "assets/education-info/photos/6047313768a271480a30.jpg",
+          "sha256": "6047313768a271480a309067b8e66a2b2363bff989d35f97c13f1228064486d3",
+          "alt": "교실에서 필기하는 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/break-the-cycle-of-procrastination/"
+      ]
+    },
+    {
+      "id": 38,
+      "folder": "2학기 중간고사 후 학습 계획 세우기 어렵고 효율적인 방법이 궁금하다면",
+      "sourceSha256": "01f3f898ef90013f6ee276d2e384e84b44d988640ab5c5a758d6ad498ad3adfc",
+      "title": "2학기 중간고사 이후, 기말고사 계획을 다시 세우기",
+      "path": "/교육정보/중간고사-이후-기말-계획/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/230caccfcd7d2d096e90.jpg",
+          "sha256": "230caccfcd7d2d096e90bf86b1ff56e8ddf2d790deaf9e77d62015d593c183d9",
+          "alt": "책상에서 책에 쓰는 손"
+        },
+        {
+          "public": "assets/education-info/photos/42e4d98d3645a8c68a65.jpg",
+          "sha256": "42e4d98d3645a8c68a6547b361ae28b19819a49db47ca2401a7e03dd0ef9cf34",
+          "alt": "여러 학습 활동을 표현한 그림"
+        },
+        {
+          "public": "assets/education-info/photos/5fc5ed6d295d1168baaf.jpg",
+          "sha256": "5fc5ed6d295d1168baaf7714f488c28721accdb1f3b6676845a99ca781c95b15",
+          "alt": "책상에서 두 팔을 들고 있는 아이들"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback"
+      ]
+    },
+    {
+      "id": 39,
+      "folder": "학습 동기 유발을 위한 코칭 기법 잘 가르치는 학원 특징",
+      "sourceSha256": "b91ed2485e2e198bdcd97641fae8be5507afab952cc43339a54e23d3a448e53b",
+      "title": "학습 동기를 돕는 코칭, 상담에서 확인할 질문",
+      "path": "/교육정보/학습코칭-동기-질문/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/44f81cbcdf1a05e13a4f.jpg",
+          "sha256": "44f81cbcdf1a05e13a4fdca3951b0b00bfe52976f6d0964d5eef718ce4ea3056",
+          "alt": "펼친 책에 필기하는 손"
+        },
+        {
+          "public": "assets/education-info/photos/4896847d3bfd45b4d54a.jpg",
+          "sha256": "4896847d3bfd45b4d54a6b85a1cb615b4d47a0d546e09656508c68281899a9db",
+          "alt": "계획 메모와 필기구가 놓인 책상"
+        },
+        {
+          "public": "assets/education-info/photos/695c95fe83ca4d8dccb3.jpg",
+          "sha256": "695c95fe83ca4d8dccb3917d6f0a2b183f225f73cecc50951118f06f1da4f33f",
+          "alt": "교복을 입고 함께 앉아 있는 두 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches"
+      ]
+    },
+    {
+      "id": 40,
+      "folder": "매주 토요일 학습 점검 시간 플래너로 시작하는 주말 습관, 자기주도학습의 첫걸음",
+      "sourceSha256": "41f5e7d6db937245002dadc001f4c417e8bb482644308085c6349f2a14722751",
+      "title": "토요일 학습 점검, 다음 주를 가볍게 만드는 기록법",
+      "path": "/교육정보/토요일-주간-학습점검/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/f9a30f1d83202012f806.png",
+          "sha256": "f9a30f1d83202012f80621f5e3f20d759a30eccc829b37f421c5d06689a460f2",
+          "alt": "열공이라는 글자가 있는 공부하는 캐릭터 그림"
+        },
+        {
+          "public": "assets/education-info/photos/1a5dcb00328ab86afe95.jpg",
+          "sha256": "1a5dcb00328ab86afe9580297d4470ffce6debfa77a0c7cebb6cc1a9df32d276",
+          "alt": "책상에서 책을 읽고 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/b96084ede256d4f6df04.jpg",
+          "sha256": "b96084ede256d4f6df04a2337bb0916c0cc10652df5d61ff7dc8f030f89af143",
+          "alt": "책 위에 놓인 탁상시계"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 41,
+      "folder": "학습에 대한 긍정적 태도 기르기 자기주도학습의 첫 걸음",
+      "sourceSha256": "7665bc43b3b916f567d18d279c23d30f411389bcce147ee7187f25328d4c5045",
+      "title": "학습에 대한 긍정적 태도, 실수를 기록하는 말부터 바꾸기",
+      "path": "/교육정보/학습-긍정태도-오류기록/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/e9d571c23df38e890b53.jpg",
+          "sha256": "e9d571c23df38e890b5374f5ebb588ae077813884b37699b19933d582f9bc705",
+          "alt": "함께 서 있는 두 학생"
+        },
+        {
+          "public": "assets/education-info/photos/61308c021a0c3f38d203.jpg",
+          "sha256": "61308c021a0c3f38d2030f2646c13fb2cfbfc54aa4f885d4b465bf5564381830",
+          "alt": "교실에서 책을 함께 읽는 학생들"
+        },
+        {
+          "public": "assets/education-info/photos/0859d0f25009409210e7.jpg",
+          "sha256": "0859d0f25009409210e7d99af04a6ea026c55b596cded1a7201c07e42be3f1e1",
+          "alt": "교실에서 학습 내용을 쓰는 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/"
+      ]
+    },
+    {
+      "id": 42,
+      "folder": "협력과 공감을 키우는 학습 환경의 중요성 꼭 기억하세요",
+      "sourceSha256": "e87e764ea0d2e4531227dbb5e62bc3d4af663c8af3cf8cfed0db7cc739d4b59d",
+      "title": "협력과 공감을 배우는 공부, 참여 규칙부터 정하기",
+      "path": "/교육정보/협력학습-공감-참여규칙/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/d7fc85576e5cbd57da45.jpg",
+          "sha256": "d7fc85576e5cbd57da45d2e86f844ae59313d6a0e7aa2fe73e791468acb38ab9",
+          "alt": "타이머와 노트가 놓인 책상"
+        },
+        {
+          "public": "assets/education-info/photos/59be06bb6f9db5e19dc5.jpg",
+          "sha256": "59be06bb6f9db5e19dc53904182df5af310479b0ae220981af9e8ce2d6fb716d",
+          "alt": "책을 읽으며 노트에 쓰는 손"
+        },
+        {
+          "public": "assets/education-info/photos/9ebd2324b432e4cd100e.jpg",
+          "sha256": "9ebd2324b432e4cd100eac7839e4b83d860cbaf027d11f64462a9295aea1da75",
+          "alt": "침대에 앉아 휴대전화를 보는 사람"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback"
+      ]
+    },
+    {
+      "id": 43,
+      "folder": "코칭 노하우로 자녀의 학습 흥미를 높이는 비법 알아봐요",
+      "sourceSha256": "e271c6cf2beaace4d9683b2e9b41b219a11390b204df22f18358387e4f7b76f9",
+      "title": "자녀의 학습 흥미를 돕는 질문과 대화 예시",
+      "path": "/교육정보/자녀-학습흥미-질문대화/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/41008a73c3ea83d2e4d9.jpg",
+          "sha256": "41008a73c3ea83d2e4d94f9fa2fcf04f9e877f652a5da8b9ac06f804c1417dd9",
+          "alt": "책상에서 교재에 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/bc711b2a41d4b8e87621.jpg",
+          "sha256": "bc711b2a41d4b8e87621b193527cdd9d825d9b24544ea7952dd3ee692636ced4",
+          "alt": "노트북 앞에서 연필을 든 학생"
+        },
+        {
+          "public": "assets/education-info/photos/e29a40801b647b2da64e.jpg",
+          "sha256": "e29a40801b647b2da64e9c8107486b8e0ca8cd79b6ee239a3e4aa157e2e8d664",
+          "alt": "두 어른이 함께 대화하는 모습"
+        }
+      ],
+      "sources": [
+        "https://www.unicef.org/eca/stories/11-tips-communicating-your-teen",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+      ]
+    },
+    {
+      "id": 44,
+      "folder": "개인별 맞춤 학습 플랜 관리 효율적인 학습 가능해요",
+      "sourceSha256": "237be108c308ed31f89320d7eade835028eb802be10b50a8a7863059e9b401fc",
+      "title": "개인별 학습 플랜, 주간 점검으로 분량 조정하기",
+      "path": "/교육정보/맞춤-학습플랜-주간조정/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/de19988ad1957c30b1b8.jpg",
+          "sha256": "de19988ad1957c30b1b8fd9c12989baf178132583c325a22c39cab277d652494",
+          "alt": "교실에서 자료를 든 학생들"
+        },
+        {
+          "public": "assets/education-info/photos/2b5620b307105b730a52.jpg",
+          "sha256": "2b5620b307105b730a5257c17fef195208f11d75ba943ca68472ba79a28014d3",
+          "alt": "과목 이름이 적힌 자료를 들고 있는 학생들"
+        },
+        {
+          "public": "assets/education-info/photos/f50077baa892e29ff78a.jpg",
+          "sha256": "f50077baa892e29ff78a550896fd51c18137307f6e449afaf042cc466ae2534c",
+          "alt": "책상에서 연필을 들고 생각하는 두 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 45,
+      "folder": "수능 공부에서의 스트레스 관리와 자기관리 방법, 현실적인 루틴 가이드",
+      "sourceSha256": "0a7dc8b163f7ab012c91c8b0e62e9e34c7eff06016b76644fca4e58d7f4bad56",
+      "title": "수능 공부 스트레스, 하루 루틴과 도움 요청을 정하기",
+      "path": "/교육정보/수능-스트레스-생활루틴/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/10ede7336e926f0f2cbb.jpg",
+          "sha256": "10ede7336e926f0f2cbb9be87feacf54a2cd901c4ff5adc88f58559beab48ea1",
+          "alt": "침대에서 잠을 자는 사람과 탁상시계"
+        },
+        {
+          "public": "assets/education-info/photos/2cc5affb2f9ccf51848c.jpg",
+          "sha256": "2cc5affb2f9ccf51848caaff8c7d6049bc2cf325579c05b51afa9ce26c246411",
+          "alt": "어른과 아이가 책상에서 대화하는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/f1db55191b3b3216fa2d.jpg",
+          "sha256": "f1db55191b3b3216fa2d2414040711d82a032b37775c8be7a0cc51c88c8a1fe7",
+          "alt": "EXAM이라는 메모가 얼굴 앞에 있는 학생"
+        }
+      ],
+      "sources": [
+        "https://www.nhs.uk/mental-health/children-and-young-adults/advice-for-parents/help-your-child-beat-exam-stress/",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 46,
+      "folder": "자기주도학습의 단계별 실천법 자세히 알아보겠습니다",
+      "sourceSha256": "90e0aba7b215c74d7c1c1d50068383d3df1f49e8313ca502ceaaa2731ed2df1e",
+      "title": "자기주도학습 단계별 실천: 함께 해 보고 혼자 확인하기",
+      "path": "/교육정보/자기주도학습-단계별-연습/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/8de210d3b702dd0d600e.jpg",
+          "sha256": "8de210d3b702dd0d600ec4098e8a9e24b925bfb6fb4ede29f276dedf15945a4b",
+          "alt": "책상에서 필기하는 손과 안경"
+        },
+        {
+          "public": "assets/education-info/photos/298da90dcf01e01658da.jpg",
+          "sha256": "298da90dcf01e01658da25aa17ea203119f0ff58db59cebab486bb74db56dffb",
+          "alt": "가방을 메고 함께 있는 두 학생"
+        },
+        {
+          "public": "assets/education-info/photos/90c91d9d07eb4a9e815a.jpg",
+          "sha256": "90c91d9d07eb4a9e815a89afeac968f8e783ba1dce08bbde486a75b73032dc39",
+          "alt": "책과 태블릿으로 학습 내용을 확인하는 모습"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback"
+      ]
+    },
+    {
+      "id": 47,
+      "folder": "시험까지 2주 남았을 때, 기말고사 잘 보는 공부 루틴",
+      "sourceSha256": "b5aa1343d29fd18712e5a5bc7114e5b01c8facfa02ee55e69d50b9d59292b542",
+      "title": "기말고사 2주 전, 범위 확인부터 재풀이까지",
+      "path": "/교육정보/기말고사-2주-공부루틴/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/5246fcb2e27094a9360e.jpg",
+          "sha256": "5246fcb2e27094a9360e13a5def70375eef798bfcd8a4075ef35bf223990353e",
+          "alt": "책과 필기구가 놓인 모습"
+        },
+        {
+          "public": "assets/education-info/photos/72a2fdb7797f5423c24d.jpg",
+          "sha256": "72a2fdb7797f5423c24d88b314f881dab2b1757e94da0a79dff405a0d4fee7c9",
+          "alt": "책상에서 생각하는 두 학생"
+        },
+        {
+          "public": "assets/education-info/photos/5a34a5a6a34cd0e0b46c.jpg",
+          "sha256": "5a34a5a6a34cd0e0b46ccf6d132e799b66edcbe696d07df3a3991d7a7db1f652",
+          "alt": "함께 서 있는 교복 차림의 학생들"
+        }
+      ],
+      "sources": [
+        "https://ies.ed.gov/ncee/wwc/PracticeGuide/1",
+        "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/"
+      ]
+    },
+    {
+      "id": 48,
+      "folder": "여름방학 공부계획 실천 결과 사례 자기주도적으로",
+      "sourceSha256": "28f6039c507db7c47712076386195310254a465fa4e27f514ba4d93a377cda44",
+      "title": "여름방학 공부 계획, 실천 결과를 읽는 예시",
+      "path": "/교육정보/여름방학-계획-결과분석/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/02c4caab42cecc1ff4c6.jpg",
+          "sha256": "02c4caab42cecc1ff4c6af414308c56bc32ec9732e18e8c14c172fdd47fa5345",
+          "alt": "학습 자료를 들고 있는 두 학생"
+        },
+        {
+          "public": "assets/education-info/photos/aab341160c5301d53997.jpg",
+          "sha256": "aab341160c5301d53997885edc9847c405e86dafea62709e8577478dccc5a13e",
+          "alt": "책상 조명 아래에서 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/0025860390a199adf61f.jpg",
+          "sha256": "0025860390a199adf61f6a805e4e11216adaff3085c37a17d69c02b2944cd865",
+          "alt": "교실에서 손을 들고 있는 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 49,
+      "folder": "2학기 학습 스트레스 관리법 함께 알아보아요",
+      "sourceSha256": "911724714df7cf5e75bc5dde7e1a2f91364f330e3eef6bd2a648e6c76af7f1e5",
+      "title": "2학기 학습 스트레스, 일정이 몰릴 때 조정하는 법",
+      "path": "/교육정보/2학기-스트레스-일정조정/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/a762b04b8ef08a72acac.jpg",
+          "sha256": "a762b04b8ef08a72acac80b02933106139cfacde6edcea3b237c3116b4eaf42e",
+          "alt": "수학식이 적힌 칠판 앞에 있는 사람"
+        },
+        {
+          "public": "assets/education-info/photos/6a31dbafce830eb33a59.jpg",
+          "sha256": "6a31dbafce830eb33a5975c77448e05115af6fcbdf740869e684c9b4b395ae0c",
+          "alt": "책 옆 답안지를 작성하는 손"
+        },
+        {
+          "public": "assets/education-info/photos/b97846e271df3b168c5f.png",
+          "sha256": "b97846e271df3b168c5f60183eedb0c22a136d01fde03ccac677dea14c094cb9",
+          "alt": "교실 책상에서 선생님과 함께 있는 학생들"
+        }
+      ],
+      "sources": [
+        "https://www.nhs.uk/mental-health/children-and-young-adults/advice-for-parents/help-your-child-beat-exam-stress/",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 50,
+      "folder": "자기주도학습과 집중력 강화의 상관관계 어떤 영향이 있을까",
+      "sourceSha256": "9fc7d65604667f3bbbbccc7a7b83365caa7a8a9e4275a4b7ff747bc5410bf65e",
+      "title": "자기주도학습과 집중력, 방해 요인을 기록해 보기",
+      "path": "/교육정보/자기주도학습-집중-방해기록/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/77ffb7687b6de9cef142.jpg",
+          "sha256": "77ffb7687b6de9cef142a720e4f8f9379abeaf084e711d9f78aa6b190d7f8ac2",
+          "alt": "책상에서 책을 읽는 아이"
+        },
+        {
+          "public": "assets/education-info/photos/dc1ee0133f95750e29dd.jpg",
+          "sha256": "dc1ee0133f95750e29dd970465ef13af165db6710e48f72aec27656b2b49ad94",
+          "alt": "공책에 내용을 적는 손"
+        },
+        {
+          "public": "assets/education-info/photos/3fa1bcf169adae69d473.jpg",
+          "sha256": "3fa1bcf169adae69d4735c3003895edafe0a652909d8a0a0acd81e11db8aab6e",
+          "alt": "어른과 아이가 책상에서 대화하는 모습"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 51,
+      "folder": "개학 후 중간고사까지 공부 계획 세우는 법 이렇게 실천하면 좋아요",
+      "sourceSha256": "3d2c4c3aef6301bb3fe09c57d0c85aba07f5442169af0ce3554c27b5b7ee56ad",
+      "title": "개학부터 중간고사까지, 수업 복습을 쌓는 계획",
+      "path": "/교육정보/개학-중간고사-수업복습/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/0f727252a770662327e8.jpg",
+          "sha256": "0f727252a770662327e85d47b9beef570380e24da72f387af1dea886db71747c",
+          "alt": "함께 서 있는 네 학생"
+        },
+        {
+          "public": "assets/education-info/photos/253d8d917ed99c43a148.jpg",
+          "sha256": "253d8d917ed99c43a148b3a80e8699ad3901270abeb8fe4a6940ea3d01d60106",
+          "alt": "교실에서 손을 든 학생"
+        },
+        {
+          "public": "assets/education-info/photos/8f1d7d0d2e214f7a01d9.jpg",
+          "sha256": "8f1d7d0d2e214f7a01d9f8d91e4c4594b22a21a37d02d5447fd0619a757496bc",
+          "alt": "어른과 학생이 함께 태블릿을 보는 모습"
+        }
+      ],
+      "sources": [
+        "https://ies.ed.gov/ncee/wwc/PracticeGuide/1",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 52,
+      "folder": "고등학생 시험 대비 팁 및 효율적인 전략 알아봐요",
+      "sourceSha256": "79f09f3b6f943bd6a14d8b72490784ad6a803d5787846e1e00e11b65cb13eee3",
+      "title": "고등학생 시험 대비, 과목별 답안에서 확인할 것",
+      "path": "/교육정보/고등학교-시험-과목별-점검/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/cb95b97d6297ef282b45.jpg",
+          "sha256": "cb95b97d6297ef282b4529dfd6b9120f75dacd29359362a8e9569e8bdb8a9aa0",
+          "alt": "교실에서 펼친 책에 쓰는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/42f38bb52872b92f66aa.jpg",
+          "sha256": "42f38bb52872b92f66aa5801cf2b0afece704b7028041ebdad9d392c30eb4c41",
+          "alt": "노트북과 책으로 공부하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/8e2138bd5b6757e5dee9.jpg",
+          "sha256": "8e2138bd5b6757e5dee9720ab49d59513946bfe3311ca3350b065541bfdf1440",
+          "alt": "교실에서 선생님과 함께 있는 학생들"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/",
+        "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/"
+      ]
+    },
+    {
+      "id": 53,
+      "folder": "코칭과 개인 학습 플랜의 상관관계 학습엔 어떤 영향을 미칠까",
+      "sourceSha256": "5ddd5ea7f0c5227a9fa7d9ff4f313c177a3a603985d57ed01a94885ceebfb7b9",
+      "title": "코칭과 개인 학습 플랜, 학생과 지도자의 역할 나누기",
+      "path": "/교육정보/학습코칭-개인플랜-역할/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/40503ba9f02a05ea5e8a.jpg",
+          "sha256": "40503ba9f02a05ea5e8a3f241e675ae25c9d1c2bc7803370ab03e50bbaed6823",
+          "alt": "책과 태블릿으로 공부하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/11c48deb81b4d8141fb4.jpg",
+          "sha256": "11c48deb81b4d8141fb4eed41dd4035719feb9461bb99326075b8a7293911f9d",
+          "alt": "어른과 학생이 함께 노트북 화면을 보는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/06b27fe73deba65a24fb.jpg",
+          "sha256": "06b27fe73deba65a24fbad440283c94ef5e97af0f02539eef5effb1ac3ac14d8",
+          "alt": "책상에서 교재에 필기하는 두 학생"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://www.unicef.org/eca/stories/11-tips-communicating-your-teen"
+      ]
+    },
+    {
+      "id": 54,
+      "folder": "개인별 학습 상황에 맞춘 학습 리듬 방법을 알면 효율적인 공부 습관을 만들 수 있어요",
+      "sourceSha256": "eed738958634bc2742f144ac98a686f40869d2473756bb83ee25016459859d5c",
+      "title": "나에게 맞는 학습 리듬, 시간대와 과제 기록으로 찾기",
+      "path": "/교육정보/학습리듬-시간대-기록/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/1457e07f483c78b3f838.jpg",
+          "sha256": "1457e07f483c78b3f83893124618dd07140a0bf953401b3a736437b22f667725",
+          "alt": "책과 답안 자료를 확인하는 모습"
+        },
+        {
+          "public": "assets/education-info/photos/27fade4a1e90d116be0e.jpg",
+          "sha256": "27fade4a1e90d116be0e6b2ba75485c64710985b6e33369fd292958f71a7dd96",
+          "alt": "헤드폰을 쓰고 노트북으로 공부하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/644d8527e3ea4fd2e9f0.jpg",
+          "sha256": "644d8527e3ea4fd2e9f08ebcaa08c5a3205977d82e04c86a74d2925b302848ae",
+          "alt": "교실에서 학습 내용을 필기하는 학생들"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/managing-time/",
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/"
+      ]
+    },
+    {
+      "id": 55,
+      "folder": "플래너 작성을 통한 학습 효율 극대화 어떤 효과가 있을까",
+      "sourceSha256": "938d81c3a53b9ddb025eddeb0dbe1fa03af69b0ab00420941cb152c70c0d7b64",
+      "title": "플래너 작성의 효과, 계획과 실행을 나란히 기록하기",
+      "path": "/교육정보/플래너-실행-결과-기록/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/38c3c2c9a023739c6e66.jpg",
+          "sha256": "38c3c2c9a023739c6e667e6be0d3f53548c49c92ba20ea26f2e71ddd40df97fc",
+          "alt": "교복을 입고 가슴 앞에 손을 모은 사람"
+        },
+        {
+          "public": "assets/education-info/photos/8f02b1d8e160b155a71b.jpg",
+          "sha256": "8f02b1d8e160b155a71b594eeafaa79e861faf0ee2aaabbb8b5cd7d58162c049",
+          "alt": "노트북 키보드에 손을 올린 모습"
+        },
+        {
+          "public": "assets/education-info/photos/cfd1261be3fc28299b4c.jpg",
+          "sha256": "cfd1261be3fc28299b4c726c090b6131395e35e378346487b59a8a3053d1e219",
+          "alt": "칠판 앞에서 학습 내용을 설명하는 사람"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+        "https://lsc.cornell.edu/managing-time/"
+      ]
+    },
+    {
+      "id": 56,
+      "folder": "공부 계획 세울 때 흔한 실수 작심삼일로 끝나는 진짜 이유",
+      "sourceSha256": "5790340d3dbe02ab6c6a2bfdf56a7336398d9cb97cd5c6db1972aa8151e22676",
+      "title": "공부 계획이 작심삼일로 끝날 때, 흔한 실수 고치기",
+      "path": "/교육정보/공부계획-흔한실수-수정/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/d66e8e90a4b2ded3a51d.jpg",
+          "sha256": "d66e8e90a4b2ded3a51d0ff18eb4d852d1c59899d0436ea71f35aea273004adb",
+          "alt": "책과 시계가 놓인 책상에서 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/ab3c02498373796d2fdf.jpg",
+          "sha256": "ab3c02498373796d2fdf2e46d6a19c9a4de50f25166df7f2a0113cc76c4c8244",
+          "alt": "책과 답안 자료를 확인하는 손"
+        },
+        {
+          "public": "assets/education-info/photos/6f4927c787d37f9a31d7.jpg",
+          "sha256": "6f4927c787d37f9a31d713bb00cbee191e4947da9b66108eac77e21649094782",
+          "alt": "학습 자료와 노트북이 놓인 책상"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/managing-time/",
+        "https://lsc.cornell.edu/break-the-cycle-of-procrastination/"
+      ]
+    },
+    {
+      "id": 57,
+      "folder": "기말고사 대비, 나에게 맞는 학습 코칭 찾기 성적 향상에 큰 도움이 될 수 있어요",
+      "sourceSha256": "7d7e30951d720ef772bb7bc5f933e64a19b154bb25450e6e48530976edc025e3",
+      "title": "기말고사 대비 학습 코칭, 필요한 지원부터 비교하기",
+      "path": "/교육정보/기말고사-학습지원-선택/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/596bb412db203816ce63.jpg",
+          "sha256": "596bb412db203816ce6359716d40cc21c7a81e20d55cf4f2f772f445ef1bd2fb",
+          "alt": "책상에서 교재에 필기하는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/651472e00e99d0cd7a2f.jpg",
+          "sha256": "651472e00e99d0cd7a2f6662f78d1c6568be8e5a733e9f1c52d46f7d0dff1471",
+          "alt": "야외에서 가방을 메고 있는 학생들"
+        },
+        {
+          "public": "assets/education-info/photos/63f0bcbd44bab51f5620.jpg",
+          "sha256": "63f0bcbd44bab51f56200ecbb945f6e2b6fc0e4efa34e4c11b3566414fb27df8",
+          "alt": "어른과 아이가 함께 태블릿을 보는 모습"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+      ]
+    },
+    {
+      "id": 58,
+      "folder": "2학기 시험 대비 시간 관리법 철저하게 지켜요",
+      "sourceSha256": "2a2288f01aab90d27d4ab1aefa3d5efe12fe9ebbc39ea96f8f72fff6e9a9290a",
+      "title": "2학기 시험 준비, 과목별 시간 예산을 정하는 법",
+      "path": "/교육정보/2학기-시험-시간예산/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/6488cea01660e4c1cc96.jpg",
+          "sha256": "6488cea01660e4c1cc960e33a3c52454eb6afff7f528c76a30fdff91c4634579",
+          "alt": "책상에서 책을 읽는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/42245cbc069c3bb30016.jpg",
+          "sha256": "42245cbc069c3bb300164ac335005340fd9f06d9b47165e51276fbc75b47004e",
+          "alt": "메모지 옆에서 연필을 잡고 엄지를 든 모습"
+        },
+        {
+          "public": "assets/education-info/photos/c12da9d12d66956e0d3b.jpg",
+          "sha256": "c12da9d12d66956e0d3b5a66cd4925298dca679f75d48edc87e2e11e1efbfe19",
+          "alt": "책과 답안 자료에 필기하는 손"
+        }
+      ],
+      "sources": [
+        "https://lsc.cornell.edu/managing-time/",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+      ]
+    },
+    {
+      "id": 59,
+      "folder": "사회 기말고사 암기 팁 단순 암기보다 더 좋은 방법",
+      "sourceSha256": "fc6c3d24c8a86b4a3983e082337743471544689c849a310681ddfcbaf2d06214",
+      "title": "사회 기말고사 암기, 개념 구분과 자료 해석으로 연결하기",
+      "path": "/교육정보/사회-기말고사-개념암기/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/0661af0bd690eaa5a8b0.jpg",
+          "sha256": "0661af0bd690eaa5a8b01a04ac1af775175d6cf7c88f136ae662fdddf60d7016",
+          "alt": "펼친 책 위에 쓰는 손"
+        },
+        {
+          "public": "assets/education-info/photos/c62a370e6787b6cbbfd1.jpg",
+          "sha256": "c62a370e6787b6cbbfd15432d535ab52056509a1d5f6405c901550c6173134a6",
+          "alt": "책상 조명 아래에서 책을 보는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/01c09969e0f874d1fc8e.jpg",
+          "sha256": "01c09969e0f874d1fc8ec6caf6593cfba007c22a34ea748c6db1044ee310a242",
+          "alt": "야외에서 손을 맞잡고 있는 사람들의 뒷모습"
+        }
+      ],
+      "sources": [
+        "https://ies.ed.gov/ncee/wwc/PracticeGuide/1",
+        "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/"
+      ]
+    },
+    {
+      "id": 60,
+      "folder": "개인 맞춤형 학습 방법 먼저 알고 활용해보세요",
+      "sourceSha256": "e5c2155ccffe4860652b649a1b66a976bea557ca6247899a8aba22d7515b7164",
+      "title": "개인 맞춤 학습 방법, 과제별로 시험하고 선택하기",
+      "path": "/교육정보/개인맞춤-학습방법-선택/",
+      "images": [
+        {
+          "public": "assets/education-info/photos/39b80d22bfe8cbe837ab.jpg",
+          "sha256": "39b80d22bfe8cbe837ab605c8bd140ef54fe36c58a171e6c0eb08034163968ad",
+          "alt": "책상에서 시계를 옆에 두고 책에 쓰는 학생"
+        },
+        {
+          "public": "assets/education-info/photos/abe81785b03cc2dd4376.jpg",
+          "sha256": "abe81785b03cc2dd4376ec37a1325cb686e9bf4d8f48b16af17109d7f99c50ca",
+          "alt": "책 사이에 누워 책을 들고 있는 두 아이"
+        },
+        {
+          "public": "assets/education-info/photos/ccd6a0d6a7c12f9d5c6d.jpg",
+          "sha256": "ccd6a0d6a7c12f9d5c6dc62b7fbb7f8ac66f8552c95494f3ddf5d4699e64a5a4",
+          "alt": "책과 노트에 함께 내용을 적는 두 사람"
+        }
+      ],
+      "sources": [
+        "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/",
+        "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+      ]
+    }
+  ]
+}

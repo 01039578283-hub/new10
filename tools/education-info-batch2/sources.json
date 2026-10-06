@@ -1,0 +1,57 @@
+{
+  "ies": {
+    "title": "미국 교육과학연구소: 학습과 기억을 돕는 수업 구성",
+    "url": "https://ies.ed.gov/ncee/wwc/PracticeGuide/1",
+    "note": "내용을 다시 떠올리고 여러 시점에 확인하는 학습의 참고 자료입니다."
+  },
+  "meta": {
+    "title": "EEF: 메타인지와 자기조절 학습",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition",
+    "note": "계획·실행·점검과 필요한 도움을 살펴보는 교육 연구 안내입니다."
+  },
+  "feedback": {
+    "title": "EEF: 학생의 학습을 돕는 피드백",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/feedback",
+    "note": "피드백을 이해하고 다음 행동으로 연결하는 데 참고할 수 있습니다."
+  },
+  "unicef": {
+    "title": "UNICEF: 청소년과 공감하며 대화하는 방법",
+    "url": "https://www.unicef.org/eca/stories/11-tips-communicating-your-teen",
+    "note": "자녀의 의견을 듣고 대화하는 데 참고할 수 있는 안내입니다."
+  },
+  "stress": {
+    "title": "NHS: 자녀의 시험 스트레스를 돕는 방법",
+    "url": "https://www.nhs.uk/mental-health/children-and-young-adults/advice-for-parents/help-your-child-beat-exam-stress/",
+    "note": "시험 시기의 생활 지원과 전문 도움이 필요한 상황을 살펴보는 자료입니다. 국내에서는 보호자·학교·전문가와 상황을 상담하세요."
+  },
+  "time": {
+    "title": "코넬대학교 학습전략센터: 시간 관리",
+    "url": "https://lsc.cornell.edu/managing-time/",
+    "note": "대학생 대상 시간 관리 자료입니다. 예시 기록은 초중고 학생의 학교·생활 일정에 맞춰 구성했습니다."
+  },
+  "procrastination": {
+    "title": "코넬대학교 학습전략센터: 미루는 습관 돌아보기",
+    "url": "https://lsc.cornell.edu/break-the-cycle-of-procrastination/",
+    "note": "미루는 이유와 과제의 크기를 점검하는 참고 자료입니다. 학생 상황에 맞춰 활용하세요."
+  },
+  "practice": {
+    "title": "코넬대학교 학습전략센터: 연습 시험 활용",
+    "url": "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/what-to-do-with-practice-exams/",
+    "note": "실제 시험 조건에 맞춰 연습하고 이해를 확인하는 방법의 참고 자료입니다. 국내 학교의 평가 안내가 우선입니다."
+  },
+  "styles": {
+    "title": "EEF: 학습 유형 분류에 관한 근거 검토",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles/",
+    "note": "고정된 학습 유형보다 현재 과제와 이해 수준을 살펴보는 데 참고할 수 있습니다."
+  },
+  "collaboration": {
+    "title": "EEF: 협력 학습의 구성과 참여",
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/collaborative-learning-approaches",
+    "note": "공동 과제와 참여 구조를 살펴보는 자료입니다. 함께 앉는 것만으로 학습 효과가 보장되지는 않습니다."
+  },
+  "csat": {
+    "title": "교육부: 2027학년도 대학수학능력시험 시행기본계획",
+    "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=105756&lev=0&m=020402&s=moe",
+    "note": "2026년 11월 19일 시행 예정인 2027학년도 수능 안내입니다. 준비물·응시 절차는 해당 연도 최신 수험생 안내를 함께 확인하세요."
+  }
+}
