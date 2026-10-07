@@ -1,0 +1,42 @@
+/* Subject guides: scoped typography and navigation; never crop/fold supplied media. */
+.subject-page .subject-situation {padding:20px;border-left:4px solid #286765;background:#f1f7f5;border-radius:0 14px 14px 0;margin:20px 0}
+.subject-page .subject-situation p {margin:8px 0;line-height:1.8}
+.subject-page .subject-steps {padding-left:26px;display:grid;gap:16px;line-height:1.8}
+.subject-page .subject-steps li {padding-left:6px}
+.subject-page .subject-example {padding:22px;background:#fff8ef;border:1px solid #eddcc6;border-radius:16px;margin-top:24px}
+.subject-page .subject-example h3 {margin-top:0}
+.subject-page .subject-record {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}
+.subject-page .subject-record article {padding:20px;border:1px solid #dce5e3;border-radius:14px;background:#fff;min-width:0}
+.subject-page .subject-record h3 {margin-top:0;font-size:1.1rem}
+.subject-page .subject-record p {font-size:1rem;line-height:1.8}
+.subject-page .subject-context {padding:20px 22px;border-left:3px solid #a4bdb2;margin:24px 0;background:#f7faf8}
+.subject-page .subject-context h3 {margin-top:0;font-size:1.1rem;line-height:1.6}
+.subject-page .subject-context p:last-child {margin-bottom:0}
+.subject-links {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.subject-links a {display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px 18px;background:#f4f8f7;border:1px solid #d5e2de;border-radius:13px;min-height:70px;text-decoration:none;color:#163d3c;min-width:0;overflow-wrap:anywhere;word-break:keep-all}
+.subject-links a span {font-weight:750;font-size:1.05rem;line-height:1.55}
+.subject-links a small {font-size:.92rem;line-height:1.65;font-weight:400;color:#526563}
+.subject-links a:hover {background:#e5f0ec;border-color:#417b74}
+.subject-links a:focus-visible {outline:3px solid #196c8b;outline-offset:3px}
+.subject-page .branch-media img {display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.subject-page .branch-media img[hidden] {display:none!important}
+.subject-page .branch-media figure {overflow:visible;height:auto;max-height:none}
+.subject-page .branch-section,.subject-page .branch-media,.subject-page #subject-learning {scroll-margin-top:100px}
+.subject-page .branch-facts dd {overflow-wrap:anywhere;word-break:keep-all;min-width:0}
+.subject-page .subject-note {font-size:.94rem;color:#536365;line-height:1.8}
+@media(max-width:640px){
+ .subject-page .branch-hero h1 {font-size:clamp(1.55rem,6vw,2rem);line-height:1.45;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:anywhere}
+ .subject-page .em-lead {font-size:1.05rem;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
+ .subject-page .em-answer {font-size:.98rem;line-height:1.8}
+ .subject-page .branch-section h2 {font-size:1.35rem;line-height:1.5;word-break:keep-all}
+ .subject-page .branch-section p,.subject-page .branch-section li {font-size:1rem;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
+ .subject-page .subject-record {grid-template-columns:1fr;gap:10px}
+ .subject-page .subject-record article,.subject-page .subject-situation,.subject-page .subject-example,.subject-page .subject-context {padding:17px}
+ .subject-links {grid-template-columns:1fr;gap:10px}
+ .subject-links a {padding:15px;min-height:64px}
+ .subject-page .branch-toc a {min-height:44px;display:flex;align-items:center}
+ .subject-page .branch-facts {grid-template-columns:1fr}
+ .subject-page .branch-facts dt {padding-bottom:4px}
+ .subject-page .branch-facts dd {margin:0;padding-top:0}
+ .subject-page .branch-faq summary {font-size:1rem;line-height:1.65;padding-right:26px}
+}

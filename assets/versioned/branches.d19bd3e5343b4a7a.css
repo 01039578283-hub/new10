@@ -1,0 +1,61 @@
+/* Branch directory extends the existing clay/cream identity. */
+.branch-page .site-shell{overflow:visible}
+.branch-main{width:min(1080px,calc(100% - 40px));margin:0 auto;padding:26px 0 72px;font-size:1rem;line-height:1.8;overflow-wrap:anywhere}
+.branch-main h1{font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.3;letter-spacing:-.04em;max-width:900px}
+.branch-main h2{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.4;letter-spacing:-.025em;margin-bottom:20px}
+.branch-main h3{font-size:1.1rem;line-height:1.5;margin-bottom:10px}
+.branch-main p+p{margin-top:12px}.branch-main p{max-width:78ch}
+.branch-main a:focus-visible,.branch-main button:focus-visible,.branch-main input:focus-visible,.branch-main summary:focus-visible{outline:3px solid var(--clay);outline-offset:4px}
+.branch-crumbs{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:0 0 24px;list-style:none;font-size:.875rem;color:var(--ink-soft)}
+.branch-crumbs li+li:before{content:'/';margin-right:8px;color:var(--ink-faint)}
+.branch-hero{padding:32px 0 28px;border-bottom:1px solid var(--line)}
+.branch-kicker{color:var(--clay-deep);font-weight:750;font-size:.9rem;margin-bottom:12px}
+.branch-summary{font-size:1.125rem;line-height:1.85;margin-top:20px;color:var(--ink-soft)}
+.branch-address{font-style:normal;font-weight:650;margin-top:16px}
+.branch-localities{margin-top:12px;color:var(--ink-soft)}
+.branch-actions,.branch-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.branch-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 18px;border-radius:10px;background:var(--clay);color:white;border:1px solid var(--clay);font:inherit;font-weight:700;line-height:1.5;text-align:center;cursor:pointer}
+.branch-button.secondary{background:white;color:var(--clay-deep);border-color:var(--line)}
+.branch-button:hover{background:var(--clay-deep);color:white}
+.branch-toc{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+.branch-toc a{padding:9px 14px;background:var(--cream-deep);border-radius:8px;font-size:.9rem;min-height:44px;display:flex;align-items:center}
+.branch-section{padding:30px;margin:24px 0;background:var(--card);border:1px solid var(--line);border-radius:18px;scroll-margin-top:130px}
+.branch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.branch-card{display:flex;flex-direction:column;align-items:flex-start;padding:22px;border:1px solid var(--line);border-radius:12px;background:var(--card);min-width:0}
+.branch-card h3{margin:4px 0 10px}.branch-card p{font-size:.9375rem;color:var(--ink-soft)}
+.branch-card .branch-open{margin-top:auto;padding-top:16px;font-size:.9375rem;font-weight:750;color:var(--clay-deep)}
+.branch-card:hover{border-color:var(--clay);box-shadow:var(--shadow-sm)}
+.branch-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.branch-area{display:flex;align-items:center;justify-content:space-between;padding:20px;border:1px solid var(--line);background:white;border-radius:12px;font-size:1.1rem;font-weight:750;min-height:68px}
+.branch-area small{font-size:.875rem;font-weight:500;color:var(--ink-soft)}
+.branch-search{padding:24px;background:var(--cream-deep);border-radius:14px;margin-bottom:24px}
+.branch-search label{display:block;font-weight:750;margin-bottom:8px}.branch-search-line{display:flex;gap:8px}
+.branch-search input{font:inherit;min-width:0;width:100%;background:white;color:var(--ink);border:1px solid #b4a193;border-radius:9px;padding:12px;min-height:48px}
+.branch-search button{flex-shrink:0}.branch-search p{margin-top:10px;font-size:.875rem;color:var(--ink-soft)}
+.branch-results{margin:14px 0;font-weight:650}.branch-empty{padding:24px;border:1px dashed var(--clay);border-radius:12px;background:white}
+.branch-facts{margin:0}.branch-facts>div{display:grid;grid-template-columns:145px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--line)}
+.branch-facts>div:last-child{border:0}.branch-facts dt{color:var(--ink-soft)}.branch-facts dd{margin:0;font-weight:650;min-width:0}
+.branch-note{font-size:.875rem;color:var(--ink-soft);line-height:1.75;margin-top:18px!important}
+.branch-courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.branch-course{padding:18px;border:1px solid var(--line);border-radius:12px}.branch-course strong{display:block;color:var(--clay-deep);margin-bottom:8px}
+.branch-course p{font-size:.9375rem}.branch-course small{display:block;font-size:.875rem;line-height:1.7;color:var(--ink-soft);margin-top:8px}
+.branch-emphasis{border-left:3px solid var(--clay);padding:8px 0 8px 18px;margin-top:20px}
+.branch-advice{margin:0;padding-left:24px}.branch-advice li{padding-left:4px;margin:12px 0}
+.branch-media{width:min(100%,700px);margin:28px auto}.branch-media figure{margin:0 0 20px}
+.branch-media img{width:100%;height:auto}.branch-map-panel{overflow:hidden;position:relative}.branch-map-panel img{max-width:none;width:100%;height:auto}
+.branch-fees{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.branch-fee{border:1px solid var(--line);border-radius:12px;padding:18px}.branch-fee h3{color:var(--clay-deep)}
+.branch-fee dl{margin:0}.branch-fee dl>div{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding:10px 0}
+.branch-fee dd{margin:0;font-weight:750;white-space:nowrap}
+.branch-school-group,.branch-faq details{border-bottom:1px solid var(--line);padding:14px 0}.branch-main summary{cursor:pointer;min-height:44px;font-weight:700;line-height:1.6;padding:8px 0}
+.branch-school-group p,.branch-faq p{margin:12px 0;color:var(--ink-soft)}
+.branch-school-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:16px 0}
+.branch-school-list li{padding:6px 10px;background:var(--cream);border-radius:7px;font-size:.9375rem}
+.branch-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.branch-gallery figure{margin:0}.branch-gallery img{width:100%;height:auto;border-radius:8px}.branch-gallery figcaption{font-size:.875rem;color:var(--ink-soft);margin-top:8px}
+.branch-back{display:inline-flex;min-height:44px;align-items:center;color:var(--clay-deep);font-weight:750;padding:12px 0}
+.branch-page .floating-cta a{min-height:44px;font-size:.9375rem}.branch-page .footer{padding-bottom:80px}
+[hidden]{display:none!important}
+@media(max-width:760px){.branch-main{width:calc(100% - 32px);padding-top:18px}.branch-hero{padding:16px 0 24px}.branch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.branch-section{padding:22px;margin:20px 0}.branch-fees{grid-template-columns:1fr}.branch-fee dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.branch-fee dl>div{display:block}.branch-fee dt{font-size:.875rem}.branch-fee dd{font-size:1rem}.branch-area-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.branch-area{padding:15px;gap:8px}.branch-gallery{grid-template-columns:1fr}}
+@media(max-width:480px){.branch-main h1{font-size:1.8rem}.branch-summary{font-size:1rem}.branch-section{padding:20px 16px}.branch-grid,.branch-courses{grid-template-columns:1fr}.branch-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.branch-facts>div{grid-template-columns:1fr;gap:4px}.branch-facts dt{font-size:.875rem}.branch-search{padding:18px 14px}.branch-search-line{flex-wrap:wrap}.branch-search input{flex-basis:100%}.branch-card{padding:20px}.branch-actions .branch-button{flex:1 1 130px}.branch-toc{gap:7px}.branch-toc a{font-size:.875rem;padding:8px 11px}.branch-page .floating-cta{left:8px;right:8px;gap:6px}.branch-page .floating-cta a{flex:1;justify-content:center;padding:8px 4px;font-size:.875rem}.branch-fee{padding:16px 12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:760px){.branch-section{scroll-margin-top:180px}.branch-page .floating-cta{left:8px;right:8px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.branch-page .floating-cta a{display:flex;justify-content:center;min-width:0;white-space:normal}}

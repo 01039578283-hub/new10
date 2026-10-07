@@ -1,0 +1,57 @@
+/* New combined guides and chapter refinements, scoped to the three guide families. */
+.combined-upgrade main{min-width:0}
+.combined-upgrade .em-brand>span{background:#8e4327;color:#fff}
+.combined-upgrade .cu-toc{margin:24px 0 30px;padding:22px;border:1px solid #dccbbe;border-radius:18px;background:#fffaf3;color:#63351f}
+.combined-upgrade .cu-toc strong{display:block;font-size:1.03rem;margin-bottom:12px}
+.combined-upgrade .cu-toc>div{display:flex;flex-wrap:wrap;gap:8px}
+.combined-upgrade .cu-toc a{display:flex;align-items:center;min-height:44px;padding:9px 13px;border:1px solid #e5d8ca;border-radius:11px;background:#fff;text-decoration:none;color:#6d3d29;font-size:.94rem;line-height:1.55;word-break:keep-all;overflow-wrap:anywhere}
+.combined-upgrade .cu-toc a:hover{background:#f5e5d4}
+.combined-upgrade main a:focus-visible,.combined-upgrade summary:focus-visible,.combined-upgrade .cu-table-wrap:focus-visible{outline:3px solid #964a21;outline-offset:4px}
+.combined-upgrade .cu-subsection{margin:20px 0;padding:22px 24px;background:#fffdfa;border:1px solid #e4d8cd;border-left:4px solid #be7950;border-radius:4px 16px 16px 4px;min-width:0}
+.combined-upgrade .cu-subsection h3{font-size:1.16rem;line-height:1.55;margin:0 0 12px;color:#693b2c;word-break:keep-all;overflow-wrap:anywhere}
+.combined-upgrade .cu-subsection p{margin:10px 0;line-height:1.85;font-size:1rem;color:#3d3833;word-break:keep-all;overflow-wrap:anywhere}
+.combined-upgrade .cu-subsection p:last-child{margin-bottom:0}
+.combined-upgrade .cu-subsection ul,.combined-upgrade .cu-subsection ol{line-height:1.8;padding-left:22px}
+.combined-upgrade .cu-subsection li+li{margin-top:10px}
+.combined-upgrade .cu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}
+.combined-upgrade .cu-grid>.cu-subsection{margin:0}
+.combined-upgrade .cu-grid a{display:inline-flex;align-items:center;min-height:44px;line-height:1.5;overflow-wrap:anywhere;word-break:keep-all}
+.combined-upgrade .cu-facts,.combined-upgrade .cu-fees{padding:28px;margin:30px 0;background:#fffdf9;border:1px solid #e5d7c8;border-radius:20px}
+.combined-upgrade .cu-table-wrap{max-width:100%;overflow-x:auto;border:1px solid #d9c8b8;border-radius:13px;margin:24px 0;background:white}
+.combined-upgrade .cu-table-wrap table{width:100%;min-width:360px;border-collapse:collapse;font-size:.96rem;line-height:1.6;table-layout:auto}
+.combined-upgrade .cu-table-wrap caption{padding:15px;text-align:left;font-weight:700;color:#714021;background:#f9eee0;caption-side:top;white-space:normal}
+.combined-upgrade .cu-table-wrap th,.combined-upgrade .cu-table-wrap td{padding:13px 12px;border:1px solid #e8ddd2;text-align:left;vertical-align:top;word-break:keep-all}
+.combined-upgrade .cu-table-wrap th{background:#faf4eb}
+.combined-upgrade main section[id],.combined-upgrade main div[id]{scroll-margin-top:95px}
+.combined-upgrade .cu-media{margin:26px 0;max-width:100%;padding:0}
+.combined-upgrade .cu-media img:not([hidden]){display:block;width:100%;height:auto!important;max-height:none!important;object-fit:contain}
+.combined-upgrade img[hidden]{display:none!important}
+.combined-upgrade .cu-media figure{height:auto;max-height:none;overflow:visible;position:static;margin:0 0 24px}
+.combined-upgrade .cu-media figcaption{position:static!important;inset:auto!important;transform:none!important;background:#f4ece2;color:#594235;border-radius:0 0 12px 12px;padding:12px 15px}
+.combined-upgrade .subject-links a{background:#fff9f0;border-color:#dfcbb8;color:#673c29}
+.combined-upgrade .subject-links small{color:#655a51}
+.combined-upgrade .subject-links a:hover{background:#f5e8d9}
+.combined-upgrade .branch-section>h2{font-size:1.55rem;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+.combined-upgrade .branch-section>p{font-size:1.04rem;line-height:1.85}
+.combined-upgrade .branch-faq summary{min-height:48px;line-height:1.7}
+@media(max-width:700px){
+ .combined-upgrade .cu-grid{grid-template-columns:1fr;gap:12px}
+ .combined-upgrade .cu-toc{padding:16px;margin:18px 0 24px}
+ .combined-upgrade .cu-toc>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .combined-upgrade .cu-toc a{padding:10px;font-size:.88rem;min-width:0}
+ .combined-upgrade .cu-subsection{padding:18px 16px;margin:16px 0}
+ .combined-upgrade .cu-subsection h3{font-size:1.1rem}
+ .combined-upgrade .cu-facts,.combined-upgrade .cu-fees{padding:18px 15px}
+ .combined-upgrade .branch-section>h2{font-size:1.32rem;line-height:1.55}
+ .combined-upgrade .branch-section>p,.combined-upgrade .cu-subsection p{font-size:1rem;line-height:1.85}
+ .combined-upgrade .branch-hero h1{font-size:clamp(1.6rem,6.3vw,2rem);line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+ .combined-upgrade .em-lead{font-size:1.04rem;line-height:1.85}
+ .combined-upgrade .em-answer{font-size:.97rem;line-height:1.8}
+ .combined-upgrade .subject-links{grid-template-columns:1fr}
+ .combined-upgrade main section[id],.combined-upgrade main div[id]{scroll-margin-top:84px}
+ .combined-upgrade .cu-table-wrap table{font-size:.87rem;min-width:330px}
+ .combined-upgrade .cu-table-wrap th,.combined-upgrade .cu-table-wrap td{padding:10px 8px}
+ .combined-upgrade .cu-table-wrap table:has(thead tr>th:nth-child(4):last-child){min-width:0;table-layout:fixed;font-size:.8rem}
+ .combined-upgrade .cu-table-wrap table:has(thead tr>th:nth-child(4):last-child) th,.combined-upgrade .cu-table-wrap table:has(thead tr>th:nth-child(4):last-child) td{padding:10px 4px;overflow-wrap:anywhere;word-break:normal}
+}
+@media(prefers-reduced-motion:reduce){.combined-upgrade *{scroll-behavior:auto!important}}

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node release-public-build.mjs && node wawa-analytics-build.mjs wawa-11 .public-release && node seo-descriptions.mjs --root=.public-release && node image-order-build.mjs",
+  "buildCommand": "node release-public-build.mjs && node wawa-analytics-build.mjs wawa-11 .public-release && node seo-descriptions.mjs --root=.public-release && node image-order-build.mjs && node readable-media-build.mjs",
   "outputDirectory": ".public-release",
   "trailingSlash": true,
   "redirects": [
@@ -12,6 +12,35 @@
       "source": "/:path*/index.html",
       "destination": "/:path*/",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/versioned/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/readable-media/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,67 @@
+/* Local math guides: facts first, native expandable reference images. */
+.ls-enhanced main { width:min(1080px,calc(100% - 32px)); margin-inline:auto; min-width:0; }
+.ls-enhanced main > .section,.ls-enhanced main > .page-hero { width:100%; margin-inline:0; }
+.ls-enhanced .ls-hero { margin:24px 0 16px; padding:28px; border:1px solid #decfc1; border-radius:20px; background:#fffdf9; }
+.ls-enhanced .ls-hero h1 { margin:12px 0 22px; font-size:clamp(1.7rem,4vw,2.35rem); line-height:1.4; letter-spacing:-.04em; }
+.ls-enhanced .ls-hero .breadcrumb { margin:0 0 18px; font-size:.8rem; line-height:1.6; }
+.ls-enhanced .ls-summary { display:grid; grid-template-columns:minmax(160px,.7fr) minmax(0,1.3fr); gap:16px; margin:0; }
+.ls-enhanced .ls-summary > div { min-width:0; padding:16px; border-radius:12px; background:#f5ede3; }
+.ls-enhanced .ls-summary dt { color:#704a36; font-size:.87rem; font-weight:700; margin-bottom:7px; }
+.ls-enhanced .ls-summary dd { margin:0; font-size:1.08rem; line-height:1.6; font-weight:650; overflow-wrap:anywhere; }
+.ls-enhanced .ls-availability { margin:16px 0 0; font-size:.94rem; line-height:1.7; color:#625245; }
+.ls-enhanced .ls-condition { padding:12px 14px; margin:12px 0 0; border-left:3px solid #9c4a29; background:#fff2e6; font-size:.96rem; line-height:1.7; }
+.ls-enhanced .ls-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.ls-enhanced .ls-actions a,.ls-enhanced .ls-map-link a,.ls-enhanced .ls-fee-document a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid #b47450; border-radius:10px; background:#fff; color:#71351d; font-weight:700; line-height:1.5; }
+.ls-enhanced .ls-actions a:last-child { background:#854024; border-color:#854024; color:white; }
+.ls-enhanced .ls-toc { margin:16px 0 24px; padding:12px; }
+.ls-enhanced .ls-toc > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.ls-enhanced .ls-toc a { justify-content:center; min-width:0; font-size:.93rem; }
+.ls-enhanced .cu-facts { margin-top:20px; }
+.ls-enhanced .cu-facts .cu-subsection { padding:18px; }
+.ls-enhanced .ls-media { margin:32px 0; padding:20px; border:1px solid #dfd3c7; border-radius:16px; background:#fffdf9; }
+.ls-enhanced .ls-media > h2 { margin:0 0 18px; font-size:1.4rem; line-height:1.5; }
+.ls-enhanced .ls-media .media-row { display:block; }
+.ls-enhanced .ls-image-details,.ls-enhanced .ls-reference-fees { margin:16px 0 24px; border:1px solid #d7c3b0; border-radius:12px; overflow:hidden; background:#fff; }
+.ls-enhanced .ls-image-details > summary,.ls-enhanced .ls-reference-fees > summary { padding:16px; cursor:pointer; min-height:52px; line-height:1.65; font-weight:700; color:#6c3822; background:#f6eadb; }
+.ls-enhanced .ls-reference-fees > p { margin:16px; line-height:1.75; }
+.ls-enhanced .ls-image-details figure { margin:0; width:100%; }
+.ls-enhanced .ls-image-details img { display:block; width:100%; height:auto!important; max-height:none!important; }
+.ls-enhanced .ls-media .ls-map { width:100%; max-width:648px; margin:20px auto; }
+.ls-enhanced .ls-media .ls-map img { width:100%; height:auto!important; object-fit:contain; }
+.ls-enhanced .ls-map-link { text-align:center; }
+.ls-enhanced main a:focus-visible,.ls-enhanced summary:focus-visible { outline:3px solid #974c26; outline-offset:3px; }
+.ls-enhanced main [id] { scroll-margin-top:90px; }
+@media(max-width:700px) {
+  .ls-enhanced .site-shell { padding-bottom:80px; }
+  .ls-enhanced .floating-cta { left:12px; right:12px; bottom:12px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; width:auto; max-width:520px; margin-inline:auto; padding:6px; border:1px solid #decfc1; border-radius:14px; background:rgba(255,253,249,.97); }
+  .ls-enhanced .floating-cta a { display:flex; justify-content:center; align-items:center; min-width:0; min-height:44px; padding:10px 6px; border-radius:9px; color:#fff; background:#854024; font-size:.85rem; line-height:1.5; }
+  .ls-enhanced .ls-hero { padding:20px 16px; margin-top:16px; }
+  .ls-enhanced .ls-hero h1 { margin-bottom:16px; }
+  .ls-enhanced .ls-summary { grid-template-columns:1fr; gap:10px; }
+  .ls-enhanced .ls-summary > div { padding:12px 14px; }
+  .ls-enhanced .ls-summary dd { font-size:1rem; }
+  .ls-enhanced .ls-toc > div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ls-enhanced .ls-toc a { font-size:.88rem; }
+  .ls-enhanced .ls-actions a { padding:10px 12px; font-size:.9rem; flex:1 1 auto; }
+  .ls-enhanced .ls-media { padding:15px 12px; }
+  .ls-enhanced .cu-facts .cu-subsection { padding:16px 14px; }
+  .ls-enhanced .ls-image-details > summary,.ls-enhanced .ls-reference-fees > summary { padding:14px; font-size:.96rem; }
+  .ls-enhanced main [id] { scroll-margin-top:84px; }
+}
+@media(prefers-reduced-motion:reduce) { .ls-enhanced * { scroll-behavior:auto!important; } }
+
+/* Source-dated tuition records and branch-specific study support. */
+.ls-enhanced .ls-fee-source{font-size:.94rem;color:#594d43}
+.ls-enhanced .ls-fee-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:1rem 0;font-size:.94rem}
+.ls-enhanced .ls-fee-table caption{text-align:left;font-weight:700;padding:0 0 .6rem}
+.ls-enhanced .ls-fee-table th,.ls-enhanced .ls-fee-table td{padding:.65rem .5rem;border:1px solid #e4d8c7;text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.ls-enhanced .ls-fee-table thead th{background:#f4eada;color:#3c332c}
+.ls-enhanced .ls-fee-table th:first-child{width:48%}
+.ls-enhanced .ls-fee-table th:nth-child(2){width:25%}
+.ls-enhanced .ls-fee-table td:last-child{white-space:nowrap}
+.ls-enhanced .ls-fee-more summary{cursor:pointer;min-height:44px;padding:.75rem;background:#f5eee4;border-radius:.5rem;font-weight:700}
+.ls-enhanced .ls-fee-caution{font-size:.92rem;line-height:1.75;color:#5b5147}
+.ls-enhanced .ls-operation-details ul{padding-left:1.15rem;line-height:1.85}
+.ls-enhanced .ls-operation-details li+li{margin-top:.45rem}
+.ls-enhanced .ls-math-venue{border:1px solid #d6bc8d;padding:1rem;margin-top:1rem}
+@media(max-width:420px){.ls-enhanced .ls-fee-table{font-size:.81rem}.ls-enhanced .ls-fee-table th,.ls-enhanced .ls-fee-table td{padding:.5rem .3rem}.ls-enhanced .ls-fee-table th:first-child{width:43%}.ls-enhanced .ls-fee-table th:nth-child(2){width:27%}}
