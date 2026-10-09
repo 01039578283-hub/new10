@@ -1,7 +1,7 @@
 {
   "domain": "영수학원.com",
   "outputDirectory": ".public-release",
-  "previousBuildCommand": "node release-public-build.mjs && node wawa-analytics-build.mjs wawa-11 .public-release && node seo-descriptions.mjs --root=.public-release && node image-order-build.mjs && node readable-media-build.mjs",
+  "previousBuildCommand": "node release-public-build.mjs && node wawa-analytics-build.mjs wawa-11 .public-release && node seo-descriptions.mjs --root=.public-release && node image-order-build.mjs && node readable-media-build.mjs && node bottom-representative-build.mjs",
   "assets": {
     "assets/site-favicon.png": "29d86edfce860c2b10205af4b4513b1fc52738aedc55f46bc0a1d4c126b2e1bb",
     "assets/site-apple-touch-icon.png": "89687cb237746fae5569d4ee587557fae0cd5ad3a4e042824a959dd478cead10"
