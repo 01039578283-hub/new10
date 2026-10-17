@@ -10,7 +10,8 @@ const tag=`<script defer src="https://wawa-visit-collector.clean-peach-8202.chat
 const skip=new Set(['node_modules','tools','scripts','tmp','temp','audit','audit-output','reports','backups','backup','source','src','drizzle','test','tests']);
 let documents=0, changed=0, present=0, skipped=0;
 const errors=[];
-const allowed=f=>!f.split(/[\\/]/).some(p=>p.startsWith('.')||skip.has(p));
+// Sandboxed map documents are embedded resources, not separate site visits.
+const allowed=f=>!f.replaceAll('\\','/').startsWith('assets/kakao-directions/')&&!f.split(/[\\/]/).some(p=>p.startsWith('.')||skip.has(p));
 async function files() {
   // The release builder has already verified this public allowlist. Reuse it
   // instead of walking thousands of directories a second time on Windows.
