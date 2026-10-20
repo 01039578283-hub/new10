@@ -20,3 +20,6 @@ tools/reports/*
 node_modules/
 .env*
 tools/data/
+
+# Uncompressed local review intermediate. Build uses the checked gzip bundle.
+seo-geo-review.json

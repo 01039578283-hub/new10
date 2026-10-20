@@ -11,3 +11,6 @@ tmp/
 *.xls
 *.csv
 *.zip
+
+# Uncompressed local review intermediate. Build uses the checked gzip bundle.
+seo-geo-review.json
